@@ -19,51 +19,60 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
+      setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu on nav click
-  const handleNavClick = () => {
-    setIsOpen(false);
-  };
+  const handleNavClick = () => setIsOpen(false);
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-stone-200/60'
-          : 'bg-transparent'
-      }`}
-    >
+    <header className="fixed top-0 left-0 right-0 z-50 flex flex-col items-center pt-4 px-4 pointer-events-none">
+      {/* ── Floating Capsule Navbar ── */}
       <nav
-        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+        className={`
+          pointer-events-auto w-full max-w-4xl
+          rounded-full border transition-all duration-500
+          ${isScrolled
+            ? 'bg-white/80 border-stone-200/60 shadow-[0_8px_32px_rgba(0,0,0,0.12)] backdrop-blur-xl'
+            : 'bg-white/10 border-white/20 shadow-[0_4px_24px_rgba(0,0,0,0.10)] backdrop-blur-md'
+          }
+        `}
         aria-label="Navigasi utama"
       >
-        <div className="flex items-center justify-between h-16 lg:h-18">
+        <div className="flex items-center justify-between h-14 px-4 sm:px-5">
           {/* Logo */}
           <Link
             href="#beranda"
-            className="flex items-center gap-2 group"
+            className="flex items-center gap-2 group flex-shrink-0"
             aria-label={`${businessConfig.name} - Beranda`}
           >
-            <div className="w-8 h-8 rounded-lg bg-green-700 flex items-center justify-center group-hover:bg-green-800 transition-colors">
-              <Leaf className="w-4 h-4 text-white" aria-hidden="true" />
+            <div className={`w-7 h-7 rounded-full flex items-center justify-center transition-colors shadow-sm ${
+              isScrolled
+                ? 'bg-green-700 group-hover:bg-green-800'
+                : 'bg-green-600/90 group-hover:bg-green-500'
+            }`}>
+              <Leaf className="w-3.5 h-3.5 text-white" aria-hidden="true" />
             </div>
-            <span className="font-semibold text-lg text-stone-900 tracking-tight">
+            <span className={`font-semibold text-sm tracking-tight transition-colors duration-300 ${
+              isScrolled ? 'text-stone-900' : 'text-white'
+            }`}>
               {businessConfig.name}
             </span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-1">
+          {/* Desktop Nav Links */}
+          <div className="hidden lg:flex items-center gap-0.5">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="px-4 py-2 text-sm font-medium text-stone-600 hover:text-green-700 rounded-md hover:bg-green-50 transition-all duration-200"
+                className={`px-3.5 py-1.5 text-sm font-medium rounded-full transition-all duration-200 ${
+                  isScrolled
+                    ? 'text-stone-600 hover:text-green-700 hover:bg-green-50'
+                    : 'text-white/80 hover:text-white hover:bg-white/15'
+                }`}
               >
                 {link.label}
               </Link>
@@ -71,12 +80,16 @@ export default function Navbar() {
           </div>
 
           {/* Desktop CTA */}
-          <div className="hidden lg:flex items-center gap-3">
+          <div className="hidden lg:flex items-center flex-shrink-0">
             <a
               href={getWhatsAppUrl('order')}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-green-700 text-white text-sm font-semibold hover:bg-green-800 transition-all duration-200 shadow-sm hover:shadow-md"
+              className={`inline-flex items-center px-4 py-2 rounded-full text-white text-sm font-semibold transition-all duration-200 shadow-md ${
+                isScrolled
+                  ? 'bg-green-700 hover:bg-green-800 hover:shadow-green-700/30'
+                  : 'bg-green-500/90 hover:bg-green-400 hover:shadow-green-500/30'
+              }`}
             >
               Pesan Sekarang
             </a>
@@ -85,7 +98,11 @@ export default function Navbar() {
           {/* Mobile Hamburger */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 rounded-lg text-stone-600 hover:text-green-700 hover:bg-green-50 transition-all"
+            className={`lg:hidden p-1.5 rounded-full transition-all ${
+              isScrolled
+                ? 'text-stone-600 hover:text-green-700 hover:bg-green-50'
+                : 'text-white/80 hover:text-white hover:bg-white/15'
+            }`}
             aria-expanded={isOpen}
             aria-label={isOpen ? 'Tutup menu' : 'Buka menu'}
           >
@@ -96,40 +113,52 @@ export default function Navbar() {
             )}
           </button>
         </div>
+      </nav>
 
-        {/* Mobile Menu */}
-        <div
-          className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-            isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-          }`}
-        >
-          <div className="bg-white border border-stone-200 rounded-xl mb-4 overflow-hidden shadow-lg">
-            <div className="flex flex-col py-2">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={handleNavClick}
-                  className="px-4 py-3 text-sm font-medium text-stone-700 hover:text-green-700 hover:bg-green-50 transition-all"
-                >
-                  {link.label}
-                </Link>
-              ))}
-              <div className="px-4 py-3 border-t border-stone-100 mt-1">
-                <a
-                  href={getWhatsAppUrl('order')}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={handleNavClick}
-                  className="flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-lg bg-green-700 text-white text-sm font-semibold hover:bg-green-800 transition-all"
-                >
-                  Pesan Sekarang
-                </a>
-              </div>
+      {/* ── Mobile Dropdown (glassmorphism) ── */}
+      <div
+        className={`
+          pointer-events-auto w-full max-w-4xl mt-2
+          overflow-hidden transition-all duration-300 ease-in-out
+          ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}
+        `}
+      >
+        <div className={`rounded-3xl border backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.15)] overflow-hidden ${
+          isScrolled
+            ? 'bg-white/90 border-stone-200/60'
+            : 'bg-white/15 border-white/20'
+        }`}>
+          <div className="flex flex-col py-2">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={handleNavClick}
+                className={`px-5 py-3 text-sm font-medium transition-all ${
+                  isScrolled
+                    ? 'text-stone-700 hover:text-green-700 hover:bg-green-50'
+                    : 'text-white/90 hover:text-white hover:bg-white/10'
+                }`}
+              >
+                {link.label}
+              </Link>
+            ))}
+            <div className={`px-4 py-3 mt-1 border-t ${isScrolled ? 'border-stone-100' : 'border-white/10'}`}>
+              <a
+                href={getWhatsAppUrl('order')}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={handleNavClick}
+                className={`flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-full text-white text-sm font-semibold transition-all shadow-md ${
+                  isScrolled ? 'bg-green-700 hover:bg-green-800' : 'bg-green-500/90 hover:bg-green-400'
+                }`}
+              >
+                Pesan Sekarang
+              </a>
             </div>
           </div>
         </div>
-      </nav>
+      </div>
     </header>
   );
 }
