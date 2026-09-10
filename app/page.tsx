@@ -72,7 +72,7 @@ export default function HomePage() {
         </ScrollReveal>
       </main>
 
-      <ScrollReveal direction="up" delay={0}>
+      <ScrollReveal direction="up">
         <Footer />
       </ScrollReveal>
 
