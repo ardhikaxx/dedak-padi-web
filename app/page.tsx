@@ -20,50 +20,55 @@ export default function HomePage() {
     <>
       <Navbar />
       <main>
-        {/* Hero tidak perlu animasi — langsung terlihat saat load */}
+        {/* 1. Beranda */}
         <HeroSection />
 
-        <ScrollReveal direction="up" delay={0}>
+        {/* Trust bar — langsung setelah hero */}
+        <ScrollReveal direction="up">
           <TrustBar />
         </ScrollReveal>
 
-        <ScrollReveal direction="up" delay={0}>
-          <AboutProduct />
-        </ScrollReveal>
-
-        <ScrollReveal direction="up" delay={0}>
+        {/* 2. Produk */}
+        <ScrollReveal direction="up">
           <ProductSection />
         </ScrollReveal>
 
-        <ScrollReveal direction="left" delay={0}>
+        {/* 3. Keunggulan */}
+        <ScrollReveal direction="left">
           <BenefitsSection />
         </ScrollReveal>
 
-        <ScrollReveal direction="up" delay={0}>
+        {/* 4. Tentang Kami */}
+        <ScrollReveal direction="up">
+          <AboutProduct />
+        </ScrollReveal>
+
+        <ScrollReveal direction="up">
           <UsageSection />
         </ScrollReveal>
 
-        <ScrollReveal direction="right" delay={0}>
+        <ScrollReveal direction="right">
           <ProcessSection />
         </ScrollReveal>
 
-        <ScrollReveal direction="up" delay={0}>
+        <ScrollReveal direction="up">
           <QualitySection />
         </ScrollReveal>
 
-        <ScrollReveal direction="fade" delay={0}>
+        <ScrollReveal direction="fade">
           <WholesaleCTA />
         </ScrollReveal>
 
-        <ScrollReveal direction="up" delay={0}>
+        <ScrollReveal direction="up">
           <TestimonialSection />
         </ScrollReveal>
 
-        <ScrollReveal direction="up" delay={0}>
+        {/* 5. FAQ */}
+        <ScrollReveal direction="up">
           <FAQSection />
         </ScrollReveal>
 
-        <ScrollReveal direction="fade" delay={0}>
+        <ScrollReveal direction="fade">
           <FinalCTA />
         </ScrollReveal>
       </main>
