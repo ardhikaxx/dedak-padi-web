@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Leaf, Home, Package, Star, Users, HelpCircle, MessageCircle } from 'lucide-react';
+import { Leaf, Home, Package, Star, Users, HelpCircle } from 'lucide-react';
 import { businessConfig, getWhatsAppUrl } from '@/data/business';
 
 const navLinks = [
@@ -174,20 +174,6 @@ export default function Navbar() {
               );
             })}
 
-            {/* Tombol WhatsApp */}
-            <a
-              href={getWhatsAppUrl('order')}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Pesan via WhatsApp"
-              className={`flex flex-col items-center justify-center gap-0.5 px-3 py-2.5 transition-all duration-200 rounded-xl ${
-                isScrolled
-                  ? 'text-stone-500 hover:text-green-700 hover:bg-green-50'
-                  : 'text-white/70 hover:text-white hover:bg-white/10'
-              }`}
-            >
-              <MessageCircle className="w-5 h-5" aria-hidden="true" />
-            </a>
           </div>
         </div>
       </nav>
