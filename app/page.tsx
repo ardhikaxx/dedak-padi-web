@@ -23,7 +23,6 @@ export default function HomePage() {
         {/* 1. Beranda */}
         <HeroSection />
 
-        {/* Trust bar — langsung setelah hero */}
         <ScrollReveal direction="up">
           <TrustBar />
         </ScrollReveal>
@@ -34,7 +33,7 @@ export default function HomePage() {
         </ScrollReveal>
 
         {/* 3. Keunggulan */}
-        <ScrollReveal direction="left">
+        <ScrollReveal direction="up">
           <BenefitsSection />
         </ScrollReveal>
 
@@ -47,7 +46,7 @@ export default function HomePage() {
           <UsageSection />
         </ScrollReveal>
 
-        <ScrollReveal direction="right">
+        <ScrollReveal direction="up">
           <ProcessSection />
         </ScrollReveal>
 
