@@ -6,7 +6,6 @@ import ProductSection from "@/components/ProductSection";
 import BenefitsSection from "@/components/BenefitsSection";
 import UsageSection from "@/components/UsageSection";
 import ProcessSection from "@/components/ProcessSection";
-import QualitySection from "@/components/QualitySection";
 import WholesaleCTA from "@/components/WholesaleCTA";
 import TestimonialSection from "@/components/TestimonialSection";
 import FAQSection from "@/components/FAQSection";
@@ -48,10 +47,6 @@ export default function HomePage() {
 
         <ScrollReveal direction="up">
           <ProcessSection />
-        </ScrollReveal>
-
-        <ScrollReveal direction="up">
-          <QualitySection />
         </ScrollReveal>
 
         <ScrollReveal direction="fade">
