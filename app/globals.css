@@ -127,25 +127,18 @@ p { line-height: 1.65; }
    Scroll Reveal Animations
    ===================================================== */
 
-/* State awal — tersembunyi sebelum masuk viewport */
 .sr-hidden {
   opacity: 0;
   transition:
-    opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Arah masuk */
-.sr-up    { transform: translateY(40px); }
-.sr-down  { transform: translateY(-40px); }
-.sr-left  { transform: translateX(40px); }
-.sr-right { transform: translateX(-40px); }
-.sr-fade  { transform: none; }
+.sr-up   { transform: translateY(36px); }
+.sr-fade { transform: none; }
 
-/* State visible — setelah IntersectionObserver aktif */
 .sr-visible {
   opacity: 1 !important;
-  transform: translate(0, 0) !important;
+  transform: translateY(0) !important;
 }
 
