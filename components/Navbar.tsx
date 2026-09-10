@@ -152,7 +152,7 @@ export default function Navbar() {
                   href={link.href}
                   aria-current={isActive ? 'page' : undefined}
                   className={`
-                    flex items-center justify-center transition-all duration-300 rounded-xl
+                    flex items-center justify-center transition-all duration-300 rounded-full
                     ${isActive
                       ? 'flex-row gap-1.5 bg-green-600 text-white px-3.5 py-2.5'
                       : isScrolled
