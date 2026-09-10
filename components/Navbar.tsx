@@ -134,7 +134,14 @@ export default function Navbar() {
         className="lg:hidden fixed bottom-4 left-4 right-4 z-50"
         aria-label="Navigasi bawah"
       >
-        <div className="bg-white/20 backdrop-blur-xl border border-white/25 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.20)] overflow-hidden">
+        <div className={`
+          backdrop-blur-xl border rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.15)] overflow-hidden
+          transition-all duration-500
+          ${isScrolled
+            ? 'bg-white/90 border-stone-200/60'
+            : 'bg-stone-900/70 border-white/15'
+          }
+        `}>
           <div className="flex items-center justify-around px-1 py-1">
             {navLinks.map((link) => {
               const Icon = link.icon;
@@ -147,8 +154,10 @@ export default function Navbar() {
                   className={`
                     flex flex-col items-center justify-center gap-0.5 transition-all duration-300 rounded-xl
                     ${isActive
-                      ? 'bg-green-600/90 text-white px-3.5 py-2 min-w-[72px]'
-                      : 'text-white/70 hover:text-white px-3 py-2.5'
+                      ? 'bg-green-600 text-white px-3.5 py-2 min-w-[72px]'
+                      : isScrolled
+                        ? 'text-stone-500 hover:text-green-700 px-3 py-2.5'
+                        : 'text-white/70 hover:text-white px-3 py-2.5'
                     }
                   `}
                 >
@@ -171,7 +180,11 @@ export default function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Pesan via WhatsApp"
-              className="flex flex-col items-center justify-center gap-0.5 text-white/70 hover:text-white px-3 py-2.5 transition-all duration-200 rounded-xl hover:bg-white/10"
+              className={`flex flex-col items-center justify-center gap-0.5 px-3 py-2.5 transition-all duration-200 rounded-xl ${
+                isScrolled
+                  ? 'text-stone-500 hover:text-green-700 hover:bg-green-50'
+                  : 'text-white/70 hover:text-white hover:bg-white/10'
+              }`}
             >
               <MessageCircle className="w-5 h-5" aria-hidden="true" />
             </a>
