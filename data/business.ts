@@ -1,8 +1,8 @@
 // Business configuration - Update all values here without touching components
 
 export const businessConfig = {
-  name: "Berkah Dedak",
-  tagline: "Dedak Padi Berkualitas untuk Agroindustri",
+  name: "UD Purnama Bondowoso",
+  tagline: "Dedak Padi Berkualitas",
   shortDescription:
     "Penyedia dedak padi / bekatul berkualitas untuk kebutuhan pakan ternak, budidaya, dan industri pengolahan pakan.",
   longDescription:
@@ -32,7 +32,7 @@ export const businessConfig = {
   },
 
   seo: {
-    title: "Berkah Dedak – Dedak Padi Berkualitas untuk Pakan & Agroindustri",
+    title: "UD Purnama Bondowoso – Dedak Padi Berkualitas untuk Pakan",
     description:
       "Penyedia dedak padi / bekatul berkualitas untuk kebutuhan pakan ternak, unggas, ikan, dan industri pakan. Tersedia dalam berbagai kemasan. Hubungi kami untuk informasi harga dan pemesanan.",
     keywords:
