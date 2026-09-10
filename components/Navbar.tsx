@@ -131,7 +131,7 @@ export default function Navbar() {
           Hanya muncul di layar < lg
       ════════════════════════════════════════ */}
       <nav
-        className="lg:hidden fixed bottom-5 left-1/2 -translate-x-1/2 z-50"
+        className="lg:hidden fixed bottom-8 left-1/2 -translate-x-1/2 z-50"
         aria-label="Navigasi bawah"
       >
         <div className={`
