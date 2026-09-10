@@ -6,11 +6,8 @@ type Direction = 'up' | 'down' | 'left' | 'right' | 'fade';
 
 interface ScrollRevealProps {
   children: ReactNode;
-  /** Arah masuk animasi */
   direction?: Direction;
-  /** Delay dalam ms */
   delay?: number;
-  /** Class tambahan pada wrapper */
   className?: string;
 }
 
@@ -34,19 +31,25 @@ export default function ScrollReveal({
           obs.unobserve(el);
         }
       },
-      { threshold: 0.12 }
+      { threshold: 0.05 }
     );
 
     obs.observe(el);
     return () => obs.disconnect();
   }, [delay]);
 
+  // left/right perlu overflow-hidden agar translateX tidak sebabkan horizontal scroll
+  // dan IntersectionObserver bisa mendeteksi elemen dengan benar
+  const needsClip = direction === 'left' || direction === 'right';
+
   return (
-    <div
-      ref={ref}
-      className={`sr-hidden sr-${direction} ${className}`}
-    >
-      {children}
+    <div className={needsClip ? 'overflow-hidden' : ''}>
+      <div
+        ref={ref}
+        className={`sr-hidden sr-${direction} ${className}`}
+      >
+        {children}
+      </div>
     </div>
   );
 }
