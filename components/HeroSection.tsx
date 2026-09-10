@@ -22,7 +22,7 @@ export default function HeroSection() {
 
       {/* ── Overlay: gradien gelap agar teks terbaca ── */}
       <div
-        className="absolute inset-0 bg-gradient-to-r from-stone-950/50 via-stone-900/30 to-stone-900/10"
+        className="absolute inset-0 bg-gradient-to-r from-stone-950/60 via-stone-900/40 to-stone-900/15"
         aria-hidden="true"
       />
 
