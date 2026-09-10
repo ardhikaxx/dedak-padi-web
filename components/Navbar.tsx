@@ -152,21 +152,21 @@ export default function Navbar() {
                   href={link.href}
                   aria-current={isActive ? 'page' : undefined}
                   className={`
-                    flex flex-col items-center justify-center gap-0.5 transition-all duration-300 rounded-xl
+                    flex items-center justify-center transition-all duration-300 rounded-xl
                     ${isActive
-                      ? 'bg-green-600 text-white px-3.5 py-2 min-w-[72px]'
+                      ? 'flex-row gap-1.5 bg-green-600 text-white px-3.5 py-2.5'
                       : isScrolled
-                        ? 'text-stone-500 hover:text-green-700 px-3 py-2.5'
-                        : 'text-white/70 hover:text-white px-3 py-2.5'
+                        ? 'flex-col text-stone-500 hover:text-green-700 px-3 py-2.5'
+                        : 'flex-col text-white/70 hover:text-white px-3 py-2.5'
                     }
                   `}
                 >
                   <Icon
-                    className={`transition-all duration-300 ${isActive ? 'w-4 h-4' : 'w-5 h-5'}`}
+                    className={`flex-shrink-0 transition-all duration-300 ${isActive ? 'w-4 h-4' : 'w-5 h-5'}`}
                     aria-hidden="true"
                   />
                   {isActive && (
-                    <span className="text-[10px] font-semibold leading-none whitespace-nowrap">
+                    <span className="text-[11px] font-semibold leading-none whitespace-nowrap">
                       {link.label}
                     </span>
                   )}
