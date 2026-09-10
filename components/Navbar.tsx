@@ -131,18 +131,18 @@ export default function Navbar() {
           Hanya muncul di layar < lg
       ════════════════════════════════════════ */}
       <nav
-        className="lg:hidden fixed bottom-4 left-4 right-4 z-50"
+        className="lg:hidden fixed bottom-5 left-1/2 -translate-x-1/2 z-50"
         aria-label="Navigasi bawah"
       >
         <div className={`
-          backdrop-blur-xl border rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.15)] overflow-hidden
+          backdrop-blur-xl border rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.18)] overflow-hidden
           transition-all duration-500
           ${isScrolled
             ? 'bg-white/90 border-stone-200/60'
             : 'bg-stone-900/70 border-white/15'
           }
         `}>
-          <div className="flex items-center justify-around px-1 py-1">
+          <div className="flex items-center px-2 py-1.5 gap-1">
             {navLinks.map((link) => {
               const Icon = link.icon;
               const isActive = activeSection === link.id;
