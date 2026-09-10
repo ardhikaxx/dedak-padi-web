@@ -73,7 +73,7 @@ export default function Navbar() {
               }`}>
                 <Leaf className="w-3.5 h-3.5 text-white" aria-hidden="true" />
               </div>
-              <div className="flex flex-col leading-none">
+              <div className="flex flex-col items-start leading-none">
                 <span className={`font-semibold text-sm tracking-tight transition-colors duration-300 ${
                   isScrolled ? 'text-stone-900' : 'text-white'
                 }`}>
