@@ -1,13 +1,15 @@
-import Link from 'next/link';
+'use client';
+
 import { Leaf, MapPin, Phone, Mail, Clock, ExternalLink } from 'lucide-react';
 import { businessConfig, getWhatsAppUrl } from '@/data/business';
+import { scrollToSection } from '@/data/scroll';
 
 const footerLinks = [
-  { label: 'Beranda', href: '#beranda' },
-  { label: 'Produk', href: '#produk' },
-  { label: 'Keunggulan', href: '#keunggulan' },
-  { label: 'Tentang Kami', href: '#tentang' },
-  { label: 'FAQ', href: '#faq' },
+  { label: 'Beranda',      id: 'beranda' },
+  { label: 'Produk',       id: 'produk' },
+  { label: 'Keunggulan',   id: 'keunggulan' },
+  { label: 'Tentang Kami', id: 'tentang' },
+  { label: 'FAQ',          id: 'faq' },
 ];
 
 export default function Footer() {
@@ -127,13 +129,13 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2.5" role="list">
               {footerLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-stone-400 hover:text-green-400 transition-colors"
+                <li key={link.id}>
+                  <button
+                    onClick={() => scrollToSection(link.id)}
+                    className="text-sm text-stone-400 hover:text-green-400 transition-colors text-left"
                   >
                     {link.label}
-                  </Link>
+                  </button>
                 </li>
               ))}
             </ul>

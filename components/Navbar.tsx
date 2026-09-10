@@ -1,16 +1,16 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Link from 'next/link';
 import { Leaf, Home, Package, Star, Users, HelpCircle } from 'lucide-react';
 import { businessConfig, getWhatsAppUrl } from '@/data/business';
+import { scrollToSection } from '@/data/scroll';
 
 const navLinks = [
-  { label: 'Beranda',      href: '#beranda',    id: 'beranda',    icon: Home },
-  { label: 'Produk',       href: '#produk',     id: 'produk',     icon: Package },
-  { label: 'Keunggulan',   href: '#keunggulan', id: 'keunggulan', icon: Star },
-  { label: 'Tentang Kami', href: '#tentang',    id: 'tentang',    icon: Users },
-  { label: 'FAQ',          href: '#faq',        id: 'faq',        icon: HelpCircle },
+  { label: 'Beranda',      id: 'beranda',    icon: Home },
+  { label: 'Produk',       id: 'produk',     icon: Package },
+  { label: 'Keunggulan',   id: 'keunggulan', icon: Star },
+  { label: 'Tentang Kami', id: 'tentang',    icon: Users },
+  { label: 'FAQ',          id: 'faq',        icon: HelpCircle },
 ];
 
 export default function Navbar() {
@@ -26,10 +26,8 @@ export default function Navbar() {
 
   // IntersectionObserver untuk deteksi section aktif
   useEffect(() => {
-    const sectionIds = navLinks.map((l) => l.id);
     const observers: IntersectionObserver[] = [];
-
-    sectionIds.forEach((id) => {
+    navLinks.forEach(({ id }) => {
       const el = document.getElementById(id);
       if (!el) return;
       const obs = new IntersectionObserver(
@@ -39,7 +37,6 @@ export default function Navbar() {
       obs.observe(el);
       observers.push(obs);
     });
-
     return () => observers.forEach((o) => o.disconnect());
   }, []);
 
@@ -64,8 +61,8 @@ export default function Navbar() {
         >
           <div className="flex items-center justify-between h-14 px-4 sm:px-5">
             {/* Logo */}
-            <Link
-              href="#beranda"
+            <button
+              onClick={() => scrollToSection('beranda')}
               className="flex items-center gap-2 group flex-shrink-0"
               aria-label={`${businessConfig.name} - Beranda`}
             >
@@ -88,14 +85,14 @@ export default function Navbar() {
                   {businessConfig.location}
                 </span>
               </div>
-            </Link>
+            </button>
 
             {/* Desktop Nav Links */}
             <div className="hidden lg:flex items-center gap-0.5">
               {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
+                <button
+                  key={link.id}
+                  onClick={() => scrollToSection(link.id)}
                   className={`px-3.5 py-1.5 text-sm font-medium rounded-full transition-all duration-200 ${
                     isScrolled
                       ? 'text-stone-600 hover:text-green-700 hover:bg-green-50'
@@ -103,7 +100,7 @@ export default function Navbar() {
                   }`}
                 >
                   {link.label}
-                </Link>
+                </button>
               ))}
             </div>
 
@@ -147,9 +144,9 @@ export default function Navbar() {
               const Icon = link.icon;
               const isActive = activeSection === link.id;
               return (
-                <Link
-                  key={link.href}
-                  href={link.href}
+                <button
+                  key={link.id}
+                  onClick={() => scrollToSection(link.id)}
                   aria-current={isActive ? 'page' : undefined}
                   className={`
                     flex items-center justify-center transition-all duration-300 rounded-full
@@ -170,10 +167,9 @@ export default function Navbar() {
                       {link.label}
                     </span>
                   )}
-                </Link>
+                </button>
               );
             })}
-
           </div>
         </div>
       </nav>
