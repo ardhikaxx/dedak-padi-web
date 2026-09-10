@@ -1,15 +1,19 @@
-import { MessageCircle, Package2 } from 'lucide-react';
-import { getWhatsAppUrl } from '@/data/business';
+import { ShoppingCart, ExternalLink } from 'lucide-react';
 import { Product } from '@/data/products';
 
 interface ProductCardProps {
   product: Product;
 }
 
-export default function ProductCard({ product }: ProductCardProps) {
-  const orderMessage = `Halo, saya tertarik dengan produk ${product.name}. Bisa informasikan harga dan ketersediaannya?`;
-  const waUrl = `https://wa.me/${process.env.NEXT_PUBLIC_WA_NUMBER || '6281234567890'}?text=${encodeURIComponent(orderMessage)}`;
+function formatPrice(price: number): string {
+  return new Intl.NumberFormat('id-ID', {
+    style: 'currency',
+    currency: 'IDR',
+    minimumFractionDigits: 0,
+  }).format(price);
+}
 
+export default function ProductCard({ product }: ProductCardProps) {
   return (
     <article className="group bg-white rounded-2xl border border-stone-200 overflow-hidden hover:border-green-200 hover:shadow-lg transition-all duration-300">
       {/* Product Image */}
@@ -81,21 +85,22 @@ export default function ProductCard({ product }: ProductCardProps) {
 
       {/* Content */}
       <div className="p-5">
+        {/* Price */}
+        <div className="mb-3">
+          <span className="text-2xl font-bold text-green-700">
+            {formatPrice(product.price)}
+          </span>
+          <span className="text-sm text-stone-400 ml-1">
+            / {product.packaging[0]?.size} {product.packaging[0]?.unit}
+          </span>
+        </div>
+
         <h3 className="text-lg font-bold text-stone-900 mb-1.5 group-hover:text-green-700 transition-colors">
           {product.name}
         </h3>
         <p className="text-sm text-stone-600 leading-relaxed mb-4">
           {product.shortDescription}
         </p>
-
-        {/* Packaging info */}
-        <div className="flex items-center gap-2 mb-4">
-          <Package2 className="w-4 h-4 text-stone-400" aria-hidden="true" />
-          <span className="text-xs text-stone-500">
-            Kemasan:{' '}
-            {product.packaging.map((p) => `${p.size} ${p.unit}`).join(' / ')}
-          </span>
-        </div>
 
         {/* Usage tags */}
         <div className="flex flex-wrap gap-1.5 mb-5">
@@ -114,16 +119,17 @@ export default function ProductCard({ product }: ProductCardProps) {
           )}
         </div>
 
-        {/* CTA */}
+        {/* CTA - Shopee */}
         <a
-          href={waUrl}
+          href={product.shopeeUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl bg-green-700 text-white text-sm font-semibold hover:bg-green-800 transition-all duration-200 group/btn"
-          aria-label={`Tanya harga ${product.name} via WhatsApp`}
+          className="flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl bg-orange-500 text-white text-sm font-semibold hover:bg-orange-600 transition-all duration-200 group/btn"
+          aria-label={`Beli ${product.name} di Shopee`}
         >
-          <MessageCircle className="w-4 h-4" aria-hidden="true" />
-          Tanya Harga / Pesan
+          <ShoppingCart className="w-4 h-4" aria-hidden="true" />
+          Beli di Shopee
+          <ExternalLink className="w-3 h-3 opacity-60" aria-hidden="true" />
         </a>
       </div>
     </article>

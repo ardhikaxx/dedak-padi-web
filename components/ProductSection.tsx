@@ -23,14 +23,14 @@ export default function ProductSection() {
             Produk Unggulan
           </h2>
           <p className="text-base text-stone-600 max-w-2xl mx-auto leading-relaxed">
-            Kami menyediakan dedak padi dalam dua jenis yang dapat disesuaikan dengan
-            kebutuhan usaha Anda. Hubungi kami untuk informasi harga dan ketersediaan.
+            Tersedia dalam kemasan praktis 1kg dan 5kg. Langsung beli di Shopee
+            atau hubungi kami untuk pembelian grosir.
           </p>
         </div>
 
         {/* Product grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8 max-w-3xl mx-auto lg:max-w-none">
-          {products.filter((p) => p.featured).map((product) => (
+          {products.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
         </div>
