@@ -25,9 +25,14 @@ export default function Footer() {
               <div className="w-8 h-8 rounded-lg bg-green-700 flex items-center justify-center">
                 <Leaf className="w-4 h-4 text-white" aria-hidden="true" />
               </div>
-              <span className="font-bold text-lg text-white">
-                {businessConfig.name}
-              </span>
+              <div className="flex flex-col leading-none">
+                <span className="font-bold text-base text-white">
+                  {businessConfig.name}
+                </span>
+                <span className="text-[11px] font-medium text-stone-500 tracking-wide mt-0.5">
+                  {businessConfig.location}
+                </span>
+              </div>
             </div>
 
             <p className="text-sm text-stone-400 leading-relaxed mb-6 max-w-xs">
