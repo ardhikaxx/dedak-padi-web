@@ -11,7 +11,7 @@ export default function WhatsAppButton() {
   if (isDismissed) return null;
 
   return (
-    <div className="fixed bottom-6 right-6 z-40 flex flex-col items-end gap-2">
+    <div className="fixed bottom-24 lg:bottom-6 right-4 lg:right-6 z-40 flex flex-col items-end gap-2">
       {/* Tooltip / popup message */}
       {showTooltip && (
         <div className="bg-white rounded-xl shadow-xl border border-stone-200 p-4 max-w-[220px] relative animate-fade-in">
