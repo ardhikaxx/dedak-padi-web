@@ -10,7 +10,10 @@ export const businessConfig = {
     "Kami adalah penyedia dedak padi yang berkomitmen menghadirkan produk bersih, terjaga kualitasnya, dan siap memenuhi kebutuhan peternak, pembudidaya, maupun pelaku industri pakan secara profesional.",
 
   whatsapp: {
-    number: "6281234567890", // Format: 62xxxxxxxxxx (tanpa +)
+    // Admin — untuk pemesanan (order & wholesale)
+    adminNumber: "6285139140188",
+    // Owner — untuk informasi umum
+    ownerNumber: "6281325182157",
     defaultMessage:
       "Halo, saya ingin mendapatkan informasi mengenai produk dedak padi. Mohon informasi harga dan ketersediaannya.",
     orderMessage:
@@ -20,7 +23,8 @@ export const businessConfig = {
   },
 
   contact: {
-    phone: "[NOMOR TELEPON]", // Ganti dengan nomor telepon
+    phone: "085139140188", // Admin
+    phoneOwner: "0813-2518-2157", // Owner
     email: "[EMAIL BISNIS]", // Ganti dengan email bisnis
     address: "[ALAMAT LENGKAP]", // Ganti dengan alamat bisnis
     operationalHours: "Senin – Sabtu, 08.00 – 17.00 WIB",
@@ -61,14 +65,23 @@ export const businessConfig = {
 export type BusinessConfig = typeof businessConfig;
 
 // Helper function untuk membuat URL WhatsApp
+// - type "default" → owner (info umum)
+// - type "order" | "wholesale" → admin (pemesanan)
 export function getWhatsAppUrl(
   type: "default" | "order" | "wholesale" = "default"
 ): string {
-  const { number } = businessConfig.whatsapp;
+  const { adminNumber, ownerNumber } = businessConfig.whatsapp;
   let message = businessConfig.whatsapp.defaultMessage;
+  let number = ownerNumber; // default → owner
 
-  if (type === "order") message = businessConfig.whatsapp.orderMessage;
-  if (type === "wholesale") message = businessConfig.whatsapp.wholesaleMessage;
+  if (type === "order") {
+    message = businessConfig.whatsapp.orderMessage;
+    number = adminNumber; // pemesanan → admin
+  }
+  if (type === "wholesale") {
+    message = businessConfig.whatsapp.wholesaleMessage;
+    number = adminNumber; // partai → admin
+  }
 
   return `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
 }

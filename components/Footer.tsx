@@ -1,6 +1,7 @@
 'use client';
 
-import { Leaf, MapPin, Phone, Mail, Clock, ExternalLink } from 'lucide-react';
+import Image from 'next/image';
+import { MapPin, Phone, Mail, Clock, ExternalLink } from 'lucide-react';
 import { businessConfig, getWhatsAppUrl } from '@/data/business';
 import { scrollToSection } from '@/data/scroll';
 
@@ -24,8 +25,15 @@ export default function Footer() {
           <div className="sm:col-span-2 lg:col-span-2">
             {/* Logo */}
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-green-700 flex items-center justify-center">
-                <Leaf className="w-4 h-4 text-white" aria-hidden="true" />
+              <div className="w-16 h-16 flex-shrink-0">
+                <Image
+                  src="/images/logo-katul.svg"
+                  alt={`Logo ${businessConfig.name}`}
+                  width={64}
+                  height={64}
+                  className="w-full h-full object-contain"
+                  unoptimized
+                />
               </div>
               <div className="flex flex-col leading-none">
                 <span className="font-bold text-base text-white">
@@ -52,21 +60,29 @@ export default function Footer() {
                   <span className="text-sm text-stone-400">{contact.address}</span>
                 </div>
               )}
-              <div className="flex items-center gap-3">
+              <div className="flex items-start gap-3">
                 <Phone
-                  className="w-4 h-4 text-green-500 flex-shrink-0"
+                  className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5"
                   aria-hidden="true"
                 />
-                <a
-                  href={getWhatsAppUrl('default')}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-stone-400 hover:text-green-400 transition-colors"
-                >
-                  {businessConfig.whatsapp.number !== '6281234567890'
-                    ? `+${businessConfig.whatsapp.number}`
-                    : contact.phone}
-                </a>
+                <div className="flex flex-col gap-1">
+                  <a
+                    href={getWhatsAppUrl('order')}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-stone-400 hover:text-green-400 transition-colors"
+                  >
+                    {contact.phone} <span className="text-stone-600 text-xs">(Admin)</span>
+                  </a>
+                  <a
+                    href={`https://wa.me/${businessConfig.whatsapp.ownerNumber}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-stone-400 hover:text-green-400 transition-colors"
+                  >
+                    {contact.phoneOwner} <span className="text-stone-600 text-xs">(Owner)</span>
+                  </a>
+                </div>
               </div>
               {contact.email && contact.email !== '[EMAIL BISNIS]' && (
                 <div className="flex items-center gap-3">

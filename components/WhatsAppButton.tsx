@@ -39,7 +39,7 @@ export default function WhatsAppButton() {
 
       {/* Main WhatsApp button */}
       <a
-        href={getWhatsAppUrl('default')}
+        href={getWhatsAppUrl('order')}
         target="_blank"
         rel="noopener noreferrer"
         onMouseEnter={() => setShowTooltip(true)}

@@ -1,7 +1,8 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Leaf, Home, Package, Star, Users, HelpCircle } from 'lucide-react';
+import Image from 'next/image';
+import { Home, Package, Star, Users, HelpCircle } from 'lucide-react';
 import { businessConfig, getWhatsAppUrl } from '@/data/business';
 import { scrollToSection } from '@/data/scroll';
 
@@ -66,12 +67,16 @@ export default function Navbar() {
               className="flex items-center gap-2 group flex-shrink-0"
               aria-label={`${businessConfig.name} - Beranda`}
             >
-              <div className={`w-7 h-7 rounded-full flex items-center justify-center transition-colors shadow-sm ${
-                isScrolled
-                  ? 'bg-green-700 group-hover:bg-green-800'
-                  : 'bg-green-600/90 group-hover:bg-green-500'
-              }`}>
-                <Leaf className="w-3.5 h-3.5 text-white" aria-hidden="true" />
+              <div className="w-12 h-12 flex-shrink-0">
+                <Image
+                  src="/images/logo-katul.svg"
+                  alt={`Logo ${businessConfig.name}`}
+                  width={48}
+                  height={48}
+                  className="w-full h-full object-contain"
+                  priority
+                  unoptimized
+                />
               </div>
               <div className="flex flex-col items-start leading-none">
                 <span className={`font-semibold text-sm tracking-tight transition-colors duration-300 ${
