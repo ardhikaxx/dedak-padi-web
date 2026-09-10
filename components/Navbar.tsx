@@ -55,11 +55,18 @@ export default function Navbar() {
             }`}>
               <Leaf className="w-3.5 h-3.5 text-white" aria-hidden="true" />
             </div>
-            <span className={`font-semibold text-sm tracking-tight transition-colors duration-300 ${
-              isScrolled ? 'text-stone-900' : 'text-white'
-            }`}>
-              {businessConfig.name}
-            </span>
+            <div className="flex flex-col leading-none">
+              <span className={`font-semibold text-sm tracking-tight transition-colors duration-300 ${
+                isScrolled ? 'text-stone-900' : 'text-white'
+              }`}>
+                {businessConfig.name}
+              </span>
+              <span className={`text-[10px] font-medium tracking-wide transition-colors duration-300 ${
+                isScrolled ? 'text-stone-400' : 'text-white/50'
+              }`}>
+                {businessConfig.location}
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Nav Links */}

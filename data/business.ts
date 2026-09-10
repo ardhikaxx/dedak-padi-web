@@ -1,7 +1,8 @@
 // Business configuration - Update all values here without touching components
 
 export const businessConfig = {
-  name: "UD Purnama Bondowoso",
+  name: "UD Purnama",
+  location: "Bondowoso, Jawa Timur",
   tagline: "Dedak Padi Berkualitas",
   shortDescription:
     "Penyedia dedak padi / bekatul berkualitas untuk kebutuhan pakan ternak, budidaya, dan industri pengolahan pakan.",
