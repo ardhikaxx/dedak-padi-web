@@ -22,13 +22,13 @@ export default function HeroSection() {
 
       {/* ── Overlay: gradien gelap agar teks terbaca ── */}
       <div
-        className="absolute inset-0 bg-gradient-to-l from-stone-950/80 via-stone-900/60 to-stone-900/30"
+        className="absolute inset-0 bg-gradient-to-r from-stone-950/50 via-stone-900/30 to-stone-900/10"
         aria-hidden="true"
       />
 
       {/* ── Foreground: konten teks ── */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-2xl ml-auto flex flex-col items-end text-right">
+        <div className="max-w-2xl">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-green-300 text-xs font-semibold tracking-wide mb-6 backdrop-blur-sm">
             <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
