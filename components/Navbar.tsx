@@ -142,7 +142,7 @@ export default function Navbar() {
             : 'bg-stone-900/70 border-white/15'
           }
         `}>
-          <div className="flex items-center px-2 py-1.5 gap-1">
+          <div className="flex items-center px-3 py-2 gap-1.5">
             {navLinks.map((link) => {
               const Icon = link.icon;
               const isActive = activeSection === link.id;
@@ -154,19 +154,19 @@ export default function Navbar() {
                   className={`
                     flex items-center justify-center transition-all duration-300 rounded-full
                     ${isActive
-                      ? 'flex-row gap-1.5 bg-green-600 text-white px-3.5 py-2.5'
+                      ? 'flex-row gap-2 bg-green-600 text-white px-4 py-3'
                       : isScrolled
-                        ? 'flex-col text-stone-500 hover:text-green-700 px-3 py-2.5'
-                        : 'flex-col text-white/70 hover:text-white px-3 py-2.5'
+                        ? 'flex-col text-stone-500 hover:text-green-700 px-4 py-3'
+                        : 'flex-col text-white/70 hover:text-white px-4 py-3'
                     }
                   `}
                 >
                   <Icon
-                    className={`flex-shrink-0 transition-all duration-300 ${isActive ? 'w-4 h-4' : 'w-5 h-5'}`}
+                    className={`flex-shrink-0 transition-all duration-300 ${isActive ? 'w-5 h-5' : 'w-6 h-6'}`}
                     aria-hidden="true"
                   />
                   {isActive && (
-                    <span className="text-[11px] font-semibold leading-none whitespace-nowrap">
+                    <span className="text-xs font-semibold leading-none whitespace-nowrap">
                       {link.label}
                     </span>
                   )}
