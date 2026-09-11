@@ -73,13 +73,13 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/images/logo-katul.svg", type: "image/svg+xml" },
-      { url: "/favicon.svg", type: "image/svg+xml" },
-      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.png?v=2", type: "image/png", sizes: "32x32" },
+      { url: "/favicon.ico?v=2", sizes: "any" },
+      { url: "/images/logo-katul.svg?v=2", type: "image/svg+xml" },
     ],
-    shortcut: "/images/logo-katul.svg",
+    shortcut: "/favicon.ico?v=2",
     apple: [
-      { url: "/images/logo-katul.svg", type: "image/svg+xml" },
+      { url: "/apple-touch-icon.png?v=2", sizes: "180x180", type: "image/png" },
     ],
   },
   other: {
@@ -98,9 +98,11 @@ export default function RootLayout({
   return (
     <html lang="id" className={`${inter.variable} h-full scroll-smooth`}>
       <head>
-        <link rel="icon" href="/images/logo-katul.svg" type="image/svg+xml" />
-        <link rel="shortcut icon" href="/images/logo-katul.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/images/logo-katul.svg" />
+        <link rel="icon" href="/favicon.ico?v=2" sizes="any" />
+        <link rel="icon" href="/icon.png?v=2" type="image/png" sizes="32x32" />
+        <link rel="icon" href="/images/logo-katul.svg?v=2" type="image/svg+xml" />
+        <link rel="shortcut icon" href="/favicon.ico?v=2" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2" />
       </head>
       <body className="min-h-full flex flex-col bg-[#FAFAF8] text-stone-900 antialiased">
         <JsonLd />
