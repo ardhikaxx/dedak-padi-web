@@ -6,7 +6,7 @@ import { MapPin, Phone, Mail, Clock, ExternalLink } from 'lucide-react';
 import { businessConfig, getWhatsAppUrl } from '@/data/business';
 
 const footerLinks = [
-  { label: 'Beranda',      href: '/#beranda' },
+  { label: 'Beranda',      href: '/' },
   { label: 'Katalog Produk', href: '/#produk' },
   { label: 'Keunggulan',   href: '/#keunggulan' },
   { label: 'Layanan Jawa Timur', href: '/#layanan-wilayah' },

@@ -8,7 +8,7 @@ import { businessConfig, getWhatsAppUrl } from '@/data/business';
 import { scrollToSection } from '@/data/scroll';
 
 const navLinks = [
-  { label: 'Beranda',      id: 'beranda',    href: '/#beranda',    icon: Home },
+  { label: 'Beranda',      id: 'beranda',    href: '/',            icon: Home },
   { label: 'Produk',       id: 'produk',     href: '/#produk',     icon: Package },
   { label: 'Keunggulan',   id: 'keunggulan', href: '/#keunggulan', icon: Star },
   { label: 'Edukasi',      id: 'edukasi',    href: '/edukasi',     icon: BookOpen },
@@ -20,6 +20,13 @@ export default function Navbar() {
   const isHome = pathname === '/';
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('beranda');
+
+  // Bersihkan hash #beranda dari URL jika pengunjung datang dengan URL ber-hash
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.location.hash === '#beranda') {
+      window.history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
+  }, []);
 
   // Tampilkan navbar dengan latar solid & teks gelap jika di-scroll ATAU jika sedang berada di luar homepage (seperti /edukasi)
   const isSolidNav = isScrolled || !isHome;
@@ -57,6 +64,17 @@ export default function Navbar() {
 
   const handleNavClick = (link: (typeof navLinks)[0]) => {
     if (typeof window !== 'undefined') {
+      if (link.id === 'beranda') {
+        if (!isHome) {
+          window.location.href = '/';
+        } else {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          if (window.location.hash) {
+            window.history.replaceState(null, '', window.location.pathname + window.location.search);
+          }
+        }
+        return;
+      }
       if (link.href === '/edukasi') {
         if (pathname === '/edukasi') {
           window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -74,10 +92,15 @@ export default function Navbar() {
   };
 
   const handleLogoClick = () => {
-    if (typeof window !== 'undefined' && !isHome) {
-      window.location.href = '/';
-    } else {
-      scrollToSection('beranda');
+    if (typeof window !== 'undefined') {
+      if (!isHome) {
+        window.location.href = '/';
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        if (window.location.hash) {
+          window.history.replaceState(null, '', window.location.pathname + window.location.search);
+        }
+      }
     }
   };
 
