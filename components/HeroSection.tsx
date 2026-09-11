@@ -38,23 +38,23 @@ export default function HeroSection() {
           {/* Headline */}
           <h1
             id="hero-heading"
-            className="text-3xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.15] tracking-tight mb-5"
+            className="text-3xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.15] tracking-tight mb-3 sm:mb-4"
           >
             Dedak Padi Berkualitas di{' '}
             <span className="text-green-400">Bondowoso, Jawa Timur</span>
           </h1>
 
           {/* Subheadline SEO Context */}
-          <p className="text-base sm:text-lg text-stone-200 leading-relaxed mb-8 max-w-xl">
+          <p className="text-sm sm:text-base text-stone-200 leading-relaxed mb-4 sm:mb-5 max-w-xl">
             UD Purnama menyediakan dedak padi halus (bekatul) dan dedak campuran menir bersih langsung dari penggilingan padi untuk pakan ternak ayam, bebek, sapi, dan budidaya ikan. Siap melayani kebutuhan eceran maupun pasokan grosir partai besar.
           </p>
 
           {/* Trust indicators */}
-          <div className="flex flex-wrap gap-3 mb-10">
+          <div className="flex flex-wrap gap-2.5 sm:gap-4 mb-6 sm:mb-7">
             {businessConfig.trustIndicators.map((item) => (
               <div
                 key={item}
-                className="flex items-center gap-1.5 text-sm text-stone-200"
+                className="flex items-center gap-1.5 text-xs sm:text-sm text-stone-200"
               >
                 <CheckCircle2
                   className="w-4 h-4 text-green-400 flex-shrink-0"
