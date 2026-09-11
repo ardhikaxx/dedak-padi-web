@@ -35,12 +35,6 @@ export default function HeroSection() {
       {/* ── Foreground: konten teks ── */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-green-300 text-xs font-semibold tracking-wide mb-6 backdrop-blur-sm">
-            <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-            Tersedia Stok Sekarang
-          </div>
-
           {/* Headline */}
           <h1
             id="hero-heading"
