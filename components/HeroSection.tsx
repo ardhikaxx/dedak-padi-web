@@ -41,12 +41,8 @@ export default function HeroSection() {
             className="text-3xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.15] tracking-tight mb-3 sm:mb-4 text-balance"
           >
             Dedak Padi Berkualitas{' '}
-            <span className="inline-block">
-              di <span className="text-green-400">Bondowoso,</span>
-            </span>{' '}
-            <span className="inline-block text-green-400">
-              Jawa Timur
-            </span>
+            <span className="inline-block">di Bondowoso,</span>{' '}
+            <span className="inline-block">Jawa Timur</span>
           </h1>
 
           {/* Subheadline SEO Context */}
