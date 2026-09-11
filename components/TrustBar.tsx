@@ -31,7 +31,7 @@ const trustItems = [
 export default function TrustBar() {
   return (
     <section
-      className="bg-white border-y border-stone-100 py-8 sm:py-10"
+      className="bg-white border-y border-stone-100 py-5 sm:py-6"
       aria-label="Keunggulan layanan kami"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

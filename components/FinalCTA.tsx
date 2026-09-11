@@ -4,7 +4,7 @@ import { getWhatsAppUrl, businessConfig } from '@/data/business';
 export default function FinalCTA() {
   return (
     <section
-      className="py-20 lg:py-28 bg-green-700 relative overflow-hidden"
+      className="py-12 lg:py-16 bg-green-700 relative overflow-hidden"
       aria-labelledby="final-cta-heading"
     >
       {/* Decorative background elements */}

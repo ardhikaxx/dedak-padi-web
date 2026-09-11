@@ -31,7 +31,7 @@ export default function AboutProduct() {
   return (
     <section
       id="tentang"
-      className="py-20 lg:py-28 bg-[#FAFAF8]"
+      className="py-12 lg:py-16 bg-[#FAFAF8]"
       aria-labelledby="about-heading"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

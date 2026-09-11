@@ -7,7 +7,7 @@ export default function ProductSection() {
   return (
     <section
       id="produk"
-      className="py-20 lg:py-28 bg-white"
+      className="py-12 lg:py-16 bg-white"
       aria-labelledby="products-heading"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

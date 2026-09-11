@@ -22,7 +22,7 @@ export default function BenefitsSection() {
   return (
     <section
       id="keunggulan"
-      className="py-20 lg:py-28 bg-[#FAFAF8]"
+      className="py-12 lg:py-16 bg-[#FAFAF8]"
       aria-labelledby="benefits-heading"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
