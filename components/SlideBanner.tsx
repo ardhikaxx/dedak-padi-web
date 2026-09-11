@@ -8,17 +8,17 @@ const slides = [
   {
     id: 1,
     src: '/images/slides/1.svg',
-    alt: 'Dedak Padi Berkualitas UD Purnama - Slide 1',
+    alt: 'Dedak Padi dan Bekatul Berkualitas UD Purnama Bondowoso Jawa Timur',
   },
   {
     id: 2,
     src: '/images/slides/2.svg',
-    alt: 'Dedak Padi Berkualitas UD Purnama - Slide 2',
+    alt: 'Pasokan Dedak Padi Segar Langsung dari Penggilingan Padi Bondowoso',
   },
   {
     id: 3,
     src: '/images/slides/3.svg',
-    alt: 'Dedak Padi Berkualitas UD Purnama - Slide 3',
+    alt: 'UD Purnama Bondowoso - Produsen & Supplier Dedak Padi Pakan Ternak',
   },
 ];
 

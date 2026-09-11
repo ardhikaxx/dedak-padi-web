@@ -28,18 +28,17 @@ export default function UsageSection() {
         {/* Section header */}
         <div className="text-center mb-14">
           <span className="inline-block px-3 py-1 rounded-full bg-amber-50 border border-amber-200 text-amber-700 text-xs font-semibold tracking-wide uppercase mb-4">
-            Pengguna Produk
+            Aplikasi &amp; Kegunaan
           </span>
           <h2
             id="usage-heading"
             className="text-3xl sm:text-4xl font-bold text-stone-900 tracking-tight mb-4"
           >
-            Cocok untuk{' '}
-            <span className="text-green-700">Berbagai Kebutuhan</span>
+            Kegunaan Dedak Padi untuk{' '}
+            <span className="text-green-700">Pakan Ternak &amp; Budidaya</span>
           </h2>
           <p className="text-base text-stone-600 max-w-2xl mx-auto leading-relaxed">
-            Dedak padi kami tersedia untuk memenuhi kebutuhan berbagai jenis usaha
-            peternakan, budidaya, dan industri pakan.
+            Dedak padi dan bekatul kami menjadi bahan pakan bernutrisi tinggi yang cocok untuk pakan unggas, ternak ruminansia, budidaya perikanan, hingga campuran konsentrat industri pakan.
           </p>
         </div>
 

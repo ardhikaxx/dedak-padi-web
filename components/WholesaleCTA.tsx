@@ -40,9 +40,7 @@ export default function WholesaleCTA() {
               </h2>
 
               <p className="text-stone-300 text-base leading-relaxed mb-8">
-                Kami siap melayani kebutuhan pembelian grosir untuk distributor,
-                peternak skala besar, pabrik pakan, dan berbagai usaha yang memerlukan
-                pasokan dedak padi secara reguler dan dalam volume yang signifikan.
+                Sebagai supplier dedak padi dan bekatul di Jawa Timur, kami siap melayani pesanan grosir dan partai besar untuk distributor, agen pakan ternak, peternak komersial, dan pabrik pakan di Bondowoso, Jember, Situbondo, Banyuwangi, Probolinggo, Lumajang, dan wilayah Jawa Timur lainnya.
               </p>
 
               {/* Info points */}

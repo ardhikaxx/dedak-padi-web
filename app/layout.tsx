@@ -1,7 +1,8 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { businessConfig } from "@/data/business";
+import JsonLd from "@/components/JsonLd";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -9,33 +10,87 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
+const baseUrl = businessConfig.seo.canonicalUrl || "https://dedakpadi.com";
+
+export const viewport: Viewport = {
+  themeColor: "#15803d",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+};
+
 export const metadata: Metadata = {
-  title: businessConfig.seo.title,
+  metadataBase: new URL(baseUrl),
+  title: {
+    default: businessConfig.seo.title,
+    template: `%s | ${businessConfig.name}`,
+  },
   description: businessConfig.seo.description,
   keywords: businessConfig.seo.keywords,
-  authors: [{ name: businessConfig.name }],
+  authors: [{ name: businessConfig.name, url: baseUrl }],
+  creator: businessConfig.name,
+  publisher: businessConfig.name,
+  formatDetection: {
+    email: true,
+    address: true,
+    telephone: true,
+  },
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: businessConfig.seo.title,
     description: businessConfig.seo.description,
-    type: "website",
+    url: baseUrl,
+    siteName: `${businessConfig.name} - Dedak Padi Bondowoso`,
     locale: "id_ID",
-    siteName: businessConfig.name,
+    type: "website",
+    images: [
+      {
+        url: businessConfig.seo.ogImage,
+        width: 1200,
+        height: 630,
+        alt: "Pabrik Dedak Padi UD Purnama Bondowoso Jawa Timur",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: businessConfig.seo.title,
     description: businessConfig.seo.description,
+    images: [businessConfig.seo.ogImage],
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  other: {
+    "geo.region": "ID-JI",
+    "geo.placename": "Bondowoso",
+    "geo.position": "-7.9135;113.8214",
+    ICBM: "-7.9135, 113.8214",
   },
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="id" className={`${inter.variable} h-full scroll-smooth`}>
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+      </head>
       <body className="min-h-full flex flex-col bg-[#FAFAF8] text-stone-900 antialiased">
+        <JsonLd />
         {children}
       </body>
     </html>

@@ -336,51 +336,63 @@ export interface FAQItem {
 export const faqItems: FAQItem[] = [
   {
     id: "apa-dedak-padi",
-    question: "Apa itu dedak padi?",
+    question: "Apa itu dedak padi dan bekatul?",
     answer:
-      "Dedak padi adalah hasil samping dari proses penggilingan padi menjadi beras. Dedak merupakan lapisan luar dari biji padi yang terpisah saat proses pengolahan. Terdiri dari dedak halus (bekatul) dan dedak kasar, keduanya memiliki nilai nutrisi yang baik dan banyak dimanfaatkan sebagai bahan pakan ternak.",
+      "Dedak padi adalah hasil samping dari proses penggilingan padi saat bulir padi dipisahkan dari kulitnya menjadi beras. Lapisan kulit ari bagian dalam yang bertekstur sangat halus dan kaya nutrisi biasa disebut bekatul (dedak halus). Dedak padi dan bekatul sangat kaya akan energi, protein nabati, dan vitamin B kompleks sehingga menjadi salah satu bahan baku utama pakan ternak dan campuran konsentrat pakan.",
+  },
+  {
+    id: "perbedaan-dedak-bekatul",
+    question: "Apa perbedaan dedak padi halus (bekatul) dan dedak dengan menir?",
+    answer:
+      "Dedak padi halus (bekatul) memiliki tekstur lembut, warna kuning kecokelatan cerah, dan kaya protein sehingga sangat cocok untuk pakan ayam petelur, ayam pedaging, bebek, kelinci, hingga pakan ikan dan udang. Sedangkan dedak padi campuran menir mengombinasikan dedak dengan butiran menir (pecahan beras kecil) yang memberikan tambahan sumber energi karbohidrat dengan harga lebih ekonomis, ideal untuk pakan unggas kampung, bebek, dan ikan kolam.",
   },
   {
     id: "kegunaan-dedak",
-    question: "Dedak padi digunakan untuk apa saja?",
+    question: "Dedak padi UD Purnama cocok digunakan untuk pakan ternak apa saja?",
     answer:
-      "Dedak padi banyak dimanfaatkan sebagai bahan pakan ternak seperti ayam, bebek, ikan, sapi, kambing, dan berbagai jenis ternak lainnya. Selain itu, dedak juga digunakan sebagai bahan campuran dalam formulasi pakan jadi oleh produsen pakan dan industri pengolahan.",
+      "Produk dedak padi dan bekatul kami dapat digunakan untuk berbagai jenis ternak: unggas (ayam pedaging, ayam petelur, ayam kampung, bebek, itik, puyuh), budidaya ikan & udang (lele, nila, mas, udang vaname), ternak ruminansia (sapi potong, sapi perah, kambing, domba, kerbau), serta sebagai bahan baku campuran formulasi pakan konsentrat oleh peternak mandiri maupun pabrik pakan.",
   },
   {
-    id: "pembelian-besar",
-    question: "Apakah bisa membeli dalam jumlah besar (partai)?",
+    id: "lokasi-beli-bondowoso",
+    question: "Di mana lokasi UD Purnama dan apakah bisa membeli langsung di Bondowoso?",
     answer:
-      "Ya, kami melayani pembelian dalam jumlah besar untuk distributor, peternak skala besar, dan industri pakan. Silakan hubungi kami melalui WhatsApp untuk mendapatkan informasi harga, ketersediaan stok, dan ketentuan pembelian partai.",
+      "UD Purnama berlokasi di Bondowoso, Jawa Timur. Calon pembeli dan peternak dapat melakukan pemesanan dan pembelian langsung di Bondowoso maupun melalui kontak WhatsApp resmi kami. Kami siap melayani pembelian retail skala kecil, kebutuhan peternakan rumahan, hingga pasokan rutin untuk peternakan komersial.",
+  },
+  {
+    id: "pengiriman-jawa-timur",
+    question: "Apakah UD Purnama melayani pengiriman ke luar kota di Jawa Timur?",
+    answer:
+      "Ya, UD Purnama melayani pengiriman dedak padi ke berbagai wilayah di Jawa Timur, terutama kawasan Tapal Kuda dan sekitarnya seperti Jember, Situbondo, Banyuwangi, Probolinggo, Lumajang, dan kota-kota lain di Jawa Timur. Hubungi kami melalui WhatsApp untuk informasi ketersediaan armada, estimasi ongkos kirim, dan opsi pengiriman terbaik ke lokasi Anda.",
+  },
+  {
+    id: "pembelian-grosir",
+    question: "Apakah tersedia pembelian dedak padi dalam jumlah besar (partai / grosir)?",
+    answer:
+      "Ya, kami melayani pembelian grosir dan partai besar untuk distributor, toko pakan ternak, koperasi peternak, peternakan skala besar, serta industri pengolahan pakan. Tersedia harga khusus volume besar dan jadwal pasokan berkala untuk menjaga kontinuitas pakan di peternakan Anda.",
   },
   {
     id: "pilihan-kemasan",
-    question: "Apakah tersedia beberapa pilihan kemasan?",
+    question: "Apa saja pilihan kemasan dedak padi yang tersedia?",
     answer:
-      "Tersedia dalam kemasan 25 kg dan 50 kg per karung. Untuk kebutuhan kemasan khusus atau jumlah yang sangat besar, silakan diskusikan langsung dengan kami agar kami dapat menyesuaikan dengan kebutuhan Anda.",
+      "Kami menyediakan kemasan retail praktis 1 kg (plastik press) dan 5 kg (karung plastik hemat) yang juga bisa dipesan melalui Shopee atau WhatsApp. Untuk kebutuhan partai besar dan industri, tersedia kemasan karung 25 kg dan 50 kg dengan penutupan rapi dan aman.",
+  },
+  {
+    id: "harga-dedak-padi",
+    question: "Berapa harga dedak padi dan bekatul di UD Purnama?",
+    answer:
+      "Untuk kemasan eceran, harga tercantum mulai dari Rp 4.000 (Dedak Halus 1kg), Rp 5.000 (Dedak Menir 1kg), Rp 15.000 (Dedak Halus 5kg), dan Rp 20.000 (Dedak Menir 5kg). Untuk pembelian karung 25kg, 50kg, atau pesanan partai besar/tonase, harga fleksibel mengikuti volume pembelian dan fluktuasi musim panen padi. Silakan hubungi WhatsApp kami untuk mendapatkan penawaran harga grosir terbaik.",
   },
   {
     id: "cara-pesan",
-    question: "Bagaimana cara melakukan pemesanan?",
+    question: "Bagaimana cara melakukan pemesanan dedak padi di UD Purnama?",
     answer:
-      "Pemesanan dapat dilakukan dengan mudah melalui WhatsApp. Cukup klik tombol 'Pesan Sekarang' atau 'Hubungi Kami' di website ini, dan tim kami akan segera membantu Anda dengan informasi produk, harga, dan proses pemesanan.",
+      "Pemesanan sangat mudah: cukup hubungi WhatsApp Admin di nomor 0851-3914-0188 untuk pemesanan rutin & grosir, atau hubungi 0813-2518-2157 untuk konsultasi informasi produk. Untuk kemasan 1kg dan 5kg, Anda juga dapat memesan langsung melalui Shopee yang tertera pada katalog produk kami.",
   },
   {
-    id: "pengiriman-luar-kota",
-    question: "Apakah bisa dikirim ke luar kota?",
+    id: "ciri-dedak-berkualitas",
+    question: "Bagaimana ciri-ciri dedak padi yang berkualitas baik?",
     answer:
-      "Ya, kami mendukung pengiriman ke berbagai wilayah. Untuk informasi lebih lanjut mengenai jangkauan pengiriman, ongkos kirim, dan estimasi waktu pengiriman ke lokasi Anda, silakan hubungi kami melalui WhatsApp.",
-  },
-  {
-    id: "perbedaan-dedak",
-    question: "Apa perbedaan dedak halus dan dedak kasar?",
-    answer:
-      "Dedak halus (bekatul) memiliki tekstur lebih lembut dan cocok untuk pakan unggas seperti ayam dan bebek, serta pakan ikan. Sedangkan dedak kasar memiliki kandungan serat yang lebih tinggi dan lebih cocok untuk ternak besar seperti sapi, kerbau, dan kambing.",
-  },
-  {
-    id: "minimum-order",
-    question: "Berapa minimum pembelian?",
-    answer:
-      "Minimum pembelian dimulai dari 1 karung (25 kg atau 50 kg). Namun untuk informasi lebih detail mengenai ketentuan minimum order dan harga berdasarkan volume, silakan hubungi kami langsung.",
+      "Dedak padi berkualitas baik memiliki ciri: aroma segar khas padi (tidak apek, tidak tengik, dan tidak asam), warna alami kuning kecokelatan seragam, tekstur bersih bebas dari sekam kasar berlebihan, kotoran, atau batu, serta kadar air rendah sehingga tidak menggumpal dan tidak mudah berjamur saat disimpan.",
   },
 ];
 

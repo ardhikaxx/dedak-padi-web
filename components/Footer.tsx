@@ -1,15 +1,17 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { MapPin, Phone, Mail, Clock, ExternalLink } from 'lucide-react';
 import { businessConfig, getWhatsAppUrl } from '@/data/business';
-import { scrollToSection } from '@/data/scroll';
 
 const footerLinks = [
-  { label: 'Beranda',      id: 'beranda' },
-  { label: 'Produk',       id: 'produk' },
-  { label: 'Keunggulan',   id: 'keunggulan' },
-  { label: 'FAQ',          id: 'faq' },
+  { label: 'Beranda',      href: '/#beranda' },
+  { label: 'Katalog Produk', href: '/#produk' },
+  { label: 'Keunggulan',   href: '/#keunggulan' },
+  { label: 'Layanan Jawa Timur', href: '/#layanan-wilayah' },
+  { label: 'Edukasi & Panduan', href: '/edukasi' },
+  { label: 'Tanya Jawab (FAQ)', href: '/#faq' },
 ];
 
 export default function Footer() {
@@ -144,13 +146,13 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2.5" role="list">
               {footerLinks.map((link) => (
-                <li key={link.id}>
-                  <button
-                    onClick={() => scrollToSection(link.id)}
-                    className="text-sm text-stone-400 hover:text-green-400 transition-colors text-left"
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-stone-400 hover:text-green-400 transition-colors text-left inline-block"
                   >
                     {link.label}
-                  </button>
+                  </Link>
                 </li>
               ))}
             </ul>

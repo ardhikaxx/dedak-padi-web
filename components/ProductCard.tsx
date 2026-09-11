@@ -20,7 +20,9 @@ export default function ProductCard({ product }: ProductCardProps) {
       <div className="relative aspect-[4/5] bg-gradient-to-br from-amber-50 via-amber-25 to-stone-50 overflow-hidden">
         <img
           src={product.image}
-          alt={product.name}
+          alt={`${product.name} - Dedak Padi Pakan Ternak UD Purnama Bondowoso`}
+          width={400}
+          height={500}
           className="w-full h-full object-cover"
           loading="lazy"
         />

@@ -4,6 +4,8 @@ import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { faqItems } from '@/data/products';
 
+import { getWhatsAppUrl } from '@/data/business';
+
 interface AccordionItemProps {
   question: string;
   answer: string;
@@ -67,29 +69,23 @@ export default function FAQSection() {
           {/* Left — Header */}
           <div className="lg:sticky lg:top-24 self-start">
             <span className="inline-block px-3 py-1 rounded-full bg-green-50 border border-green-200 text-green-700 text-xs font-semibold tracking-wide uppercase mb-4">
-              FAQ
+              Tanya Jawab Dedak Padi
             </span>
             <h2
               id="faq-heading"
               className="text-3xl sm:text-4xl font-bold text-stone-900 tracking-tight mb-4"
             >
               Pertanyaan yang{' '}
-              <span className="text-green-700">Sering Ditanya</span>
+              <span className="text-green-700">Sering Ditanyakan</span>
             </h2>
             <p className="text-base text-stone-600 leading-relaxed mb-6">
-              Tidak menemukan jawaban yang Anda cari? Jangan ragu untuk menghubungi
-              kami langsung melalui WhatsApp.
+              Informasi lengkap seputar produk dedak padi, bekatul, pemesanan, harga, dan layanan pengiriman UD Purnama di Bondowoso & Jawa Timur.
             </p>
 
             <a
-              href="#"
-              onClick={(e) => {
-                e.preventDefault();
-                const waUrl = `https://wa.me/6281234567890?text=${encodeURIComponent(
-                  'Halo, saya ingin menanyakan informasi mengenai produk dedak padi.'
-                )}`;
-                window.open(waUrl, '_blank', 'noopener,noreferrer');
-              }}
+              href={getWhatsAppUrl('default')}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-sm font-semibold text-green-700 hover:text-green-800 transition-colors"
             >
               Tanya Langsung via WhatsApp

@@ -6,6 +6,7 @@ import ProductSection from "@/components/ProductSection";
 import BenefitsSection from "@/components/BenefitsSection";
 import UsageSection from "@/components/UsageSection";
 import ProcessSection from "@/components/ProcessSection";
+import LocalPresenceSection from "@/components/LocalPresenceSection";
 import WholesaleCTA from "@/components/WholesaleCTA";
 import TestimonialSection from "@/components/TestimonialSection";
 import FAQSection from "@/components/FAQSection";
@@ -47,6 +48,11 @@ export default function HomePage() {
 
         <ScrollReveal direction="up">
           <ProcessSection />
+        </ScrollReveal>
+
+        {/* Jangkauan Layanan & Distribusi Jawa Timur */}
+        <ScrollReveal direction="up">
+          <LocalPresenceSection />
         </ScrollReveal>
 
         <ScrollReveal direction="fade">

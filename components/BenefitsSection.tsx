@@ -29,18 +29,17 @@ export default function BenefitsSection() {
         {/* Section header */}
         <div className="text-center mb-14">
           <span className="inline-block px-3 py-1 rounded-full bg-green-50 border border-green-200 text-green-700 text-xs font-semibold tracking-wide uppercase mb-4">
-            Keunggulan
+            Keunggulan Layanan
           </span>
           <h2
             id="benefits-heading"
             className="text-3xl sm:text-4xl font-bold text-stone-900 tracking-tight mb-4"
           >
             Mengapa Memilih{' '}
-            <span className="text-green-700">Produk Kami?</span>
+            <span className="text-green-700">Dedak Padi UD Purnama?</span>
           </h2>
           <p className="text-base text-stone-600 max-w-2xl mx-auto leading-relaxed">
-            Kami berkomitmen menghadirkan produk dedak padi yang berkualitas dengan layanan
-            profesional untuk mendukung usaha Anda.
+            Kami berkomitmen menghadirkan produk dedak padi dan bekatul yang bersih, kering, bebas kotoran berlebih, dan siap memenuhi kebutuhan pakan ternak Anda secara konsisten.
           </p>
         </div>
 

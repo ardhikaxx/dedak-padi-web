@@ -14,17 +14,17 @@ export default function ProductSection() {
         {/* Section header */}
         <div className="text-center mb-14">
           <span className="inline-block px-3 py-1 rounded-full bg-green-50 border border-green-200 text-green-700 text-xs font-semibold tracking-wide uppercase mb-4">
-            Produk Kami
+            Katalog Produk Dedak
           </span>
           <h2
             id="products-heading"
             className="text-3xl sm:text-4xl font-bold text-stone-900 tracking-tight mb-4"
           >
-            Produk Unggulan
+            Pilihan Produk{' '}
+            <span className="text-green-700">Dedak Padi &amp; Bekatul</span>
           </h2>
           <p className="text-base text-stone-600 max-w-2xl mx-auto leading-relaxed">
-            Tersedia dalam kemasan praktis 1kg dan 5kg. Langsung beli di Shopee
-            atau hubungi kami untuk pembelian grosir.
+            Menyediakan dedak padi halus (bekatul) murni dan dedak campuran menir berkualitas untuk pakan ternak. Tersedia dalam kemasan ekonomis 1kg, 5kg, hingga karung partai besar grosir.
           </p>
         </div>
 

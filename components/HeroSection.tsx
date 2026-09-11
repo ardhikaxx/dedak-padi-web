@@ -41,11 +41,16 @@ export default function HeroSection() {
           {/* Headline */}
           <h1
             id="hero-heading"
-            className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.1] tracking-tight mb-6"
+            className="text-3xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.15] tracking-tight mb-5"
           >
-            Dedak Padi
-            <span className="block text-green-400">Berkualitas</span>
+            Dedak Padi Berkualitas di{' '}
+            <span className="text-green-400">Bondowoso, Jawa Timur</span>
           </h1>
+
+          {/* Subheadline SEO Context */}
+          <p className="text-base sm:text-lg text-stone-200 leading-relaxed mb-8 max-w-xl">
+            UD Purnama menyediakan dedak padi halus (bekatul) dan dedak campuran menir bersih langsung dari penggilingan padi untuk pakan ternak ayam, bebek, sapi, dan budidaya ikan. Siap melayani kebutuhan eceran maupun pasokan grosir partai besar.
+          </p>
 
           {/* Trust indicators */}
           <div className="flex flex-wrap gap-3 mb-10">

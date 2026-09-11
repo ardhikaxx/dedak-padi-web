@@ -2,15 +2,16 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { Home, Package, Star, HelpCircle } from 'lucide-react';
+import { Home, Package, Star, BookOpen, HelpCircle } from 'lucide-react';
 import { businessConfig, getWhatsAppUrl } from '@/data/business';
 import { scrollToSection } from '@/data/scroll';
 
 const navLinks = [
-  { label: 'Beranda',      id: 'beranda',    icon: Home },
-  { label: 'Produk',       id: 'produk',     icon: Package },
-  { label: 'Keunggulan',   id: 'keunggulan', icon: Star },
-  { label: 'FAQ',          id: 'faq',        icon: HelpCircle },
+  { label: 'Beranda',      id: 'beranda',    href: '/#beranda',    icon: Home },
+  { label: 'Produk',       id: 'produk',     href: '/#produk',     icon: Package },
+  { label: 'Keunggulan',   id: 'keunggulan', href: '/#keunggulan', icon: Star },
+  { label: 'Edukasi',      id: 'edukasi',    href: '/edukasi',     icon: BookOpen },
+  { label: 'FAQ',          id: 'faq',        href: '/#faq',        icon: HelpCircle },
 ];
 
 export default function Navbar() {
@@ -40,6 +41,32 @@ export default function Navbar() {
     return () => observers.forEach((o) => o.disconnect());
   }, []);
 
+  const handleNavClick = (link: (typeof navLinks)[0]) => {
+    if (typeof window !== 'undefined') {
+      if (link.href === '/edukasi') {
+        if (window.location.pathname === '/edukasi') {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+          window.location.href = '/edukasi';
+        }
+        return;
+      }
+      if (window.location.pathname !== '/') {
+        window.location.href = link.href;
+      } else {
+        scrollToSection(link.id);
+      }
+    }
+  };
+
+  const handleLogoClick = () => {
+    if (typeof window !== 'undefined' && window.location.pathname !== '/') {
+      window.location.href = '/';
+    } else {
+      scrollToSection('beranda');
+    }
+  };
+
   return (
     <>
       {/* ════════════════════════════════════════
@@ -62,7 +89,7 @@ export default function Navbar() {
           <div className="flex items-center justify-between h-14 px-4 sm:px-5">
             {/* Logo */}
             <button
-              onClick={() => scrollToSection('beranda')}
+              onClick={handleLogoClick}
               className="flex items-center gap-2 group flex-shrink-0"
               aria-label={`${businessConfig.name} - Beranda`}
             >
@@ -96,7 +123,7 @@ export default function Navbar() {
               {navLinks.map((link) => (
                 <button
                   key={link.id}
-                  onClick={() => scrollToSection(link.id)}
+                  onClick={() => handleNavClick(link)}
                   className={`px-3.5 py-1.5 text-sm font-medium rounded-full transition-all duration-200 ${
                     isScrolled
                       ? 'text-stone-600 hover:text-green-700 hover:bg-green-50'
@@ -150,7 +177,7 @@ export default function Navbar() {
               return (
                 <button
                   key={link.id}
-                  onClick={() => scrollToSection(link.id)}
+                  onClick={() => handleNavClick(link)}
                   aria-current={isActive ? 'page' : undefined}
                   className={`
                     flex items-center justify-center transition-all duration-300 rounded-full
