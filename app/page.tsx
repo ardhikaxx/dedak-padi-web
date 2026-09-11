@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import TrustBar from "@/components/TrustBar";
+import SlideBanner from "@/components/SlideBanner";
 import ProductSection from "@/components/ProductSection";
 import BenefitsSection from "@/components/BenefitsSection";
 import UsageSection from "@/components/UsageSection";
@@ -23,6 +24,11 @@ export default function HomePage() {
 
         <ScrollReveal direction="up">
           <TrustBar />
+        </ScrollReveal>
+
+        {/* Slide Banner Otomatis */}
+        <ScrollReveal direction="up">
+          <SlideBanner />
         </ScrollReveal>
 
         {/* 2. Produk */}
