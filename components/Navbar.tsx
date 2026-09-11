@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { Home, Package, Star, Users, HelpCircle } from 'lucide-react';
+import { Home, Package, Star, HelpCircle } from 'lucide-react';
 import { businessConfig, getWhatsAppUrl } from '@/data/business';
 import { scrollToSection } from '@/data/scroll';
 
@@ -10,7 +10,6 @@ const navLinks = [
   { label: 'Beranda',      id: 'beranda',    icon: Home },
   { label: 'Produk',       id: 'produk',     icon: Package },
   { label: 'Keunggulan',   id: 'keunggulan', icon: Star },
-  { label: 'Tentang Kami', id: 'tentang',    icon: Users },
   { label: 'FAQ',          id: 'faq',        icon: HelpCircle },
 ];
 

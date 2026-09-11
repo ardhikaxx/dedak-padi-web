@@ -9,7 +9,6 @@ const footerLinks = [
   { label: 'Beranda',      id: 'beranda' },
   { label: 'Produk',       id: 'produk' },
   { label: 'Keunggulan',   id: 'keunggulan' },
-  { label: 'Tentang Kami', id: 'tentang' },
   { label: 'FAQ',          id: 'faq' },
 ];
 

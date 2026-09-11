@@ -1,7 +1,6 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import TrustBar from "@/components/TrustBar";
-import AboutProduct from "@/components/AboutProduct";
 import ProductSection from "@/components/ProductSection";
 import BenefitsSection from "@/components/BenefitsSection";
 import UsageSection from "@/components/UsageSection";
@@ -34,11 +33,6 @@ export default function HomePage() {
         {/* 3. Keunggulan */}
         <ScrollReveal direction="up">
           <BenefitsSection />
-        </ScrollReveal>
-
-        {/* 4. Tentang Kami */}
-        <ScrollReveal direction="up">
-          <AboutProduct />
         </ScrollReveal>
 
         <ScrollReveal direction="up">
