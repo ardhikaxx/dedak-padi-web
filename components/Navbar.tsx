@@ -43,7 +43,7 @@ export default function Navbar() {
         window.history.replaceState(null, '', window.location.pathname + window.location.search);
       }
     }
-  }, [isHome]);
+  }, [pathname]);
 
   // Tampilkan navbar dengan latar solid & teks gelap jika di-scroll ATAU jika sedang berada di luar homepage (seperti /edukasi)
   const isSolidNav = isScrolled || !isHome;
@@ -53,18 +53,18 @@ export default function Navbar() {
     const handleScroll = () => {
       const scrollY = window.scrollY;
       setIsScrolled(scrollY > 20);
-      if (isHome && scrollY < 250) {
+      if (pathname === '/' && scrollY < 250) {
         setActiveSection('beranda');
       }
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [isHome]);
+  }, [pathname]);
 
   // IntersectionObserver untuk deteksi section aktif di beranda, atau sinkronisasi rute aktif
   useEffect(() => {
-    if (!isHome) {
+    if (pathname !== '/') {
       if (pathname.startsWith('/edukasi')) {
         setActiveSection('edukasi');
       }
@@ -88,7 +88,7 @@ export default function Navbar() {
       observers.push(obs);
     });
     return () => observers.forEach((o) => o.disconnect());
-  }, [isHome, pathname]);
+  }, [pathname]);
 
   const handleNavClick = (link: (typeof navLinks)[0]) => {
     if (typeof window !== 'undefined') {
