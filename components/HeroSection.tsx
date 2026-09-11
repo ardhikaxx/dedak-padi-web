@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { ArrowRight, CheckCircle2, ChevronRight } from 'lucide-react';
 import { businessConfig, getWhatsAppUrl } from '@/data/business';
 
@@ -5,24 +6,26 @@ export default function HeroSection() {
   return (
     <section
       id="beranda"
-      className="relative h-screen flex items-center overflow-hidden"
+      className="relative min-h-[100dvh] h-screen min-h-[580px] flex items-center overflow-hidden"
       aria-labelledby="hero-heading"
     >
       {/* ── Background Layer: Gambar pabrik dedak padi ── */}
-      <div className="absolute inset-0" aria-hidden="true">
-        <img
+      <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
+        <Image
           src="/images/bg-hero.jpg"
-          alt=""
-          className="w-full h-full object-cover"
-          fetchPriority="high"
+          alt="Pabrik Penggilingan Dedak Padi UD Purnama"
+          fill
+          priority
+          sizes="100vw"
+          className="w-full h-full object-cover object-[65%_center] sm:object-center scale-110 sm:scale-100 transition-transform duration-700 select-none"
         />
         {/* Dark overlay for texture */}
-        <div className="absolute inset-0 bg-stone-950/20" />
+        <div className="absolute inset-0 bg-stone-950/30 sm:bg-stone-950/20" />
       </div>
 
       {/* ── Overlay: gradien gelap agar teks terbaca ── */}
       <div
-        className="absolute inset-0 bg-gradient-to-r from-stone-950/60 via-stone-900/40 to-stone-900/15"
+        className="absolute inset-0 bg-gradient-to-r from-stone-950/80 via-stone-900/50 to-stone-900/20 sm:from-stone-950/60 sm:via-stone-900/40 sm:to-stone-900/15"
         aria-hidden="true"
       />
 

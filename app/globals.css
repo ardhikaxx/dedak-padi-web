@@ -111,10 +111,12 @@ button {
   color: #14532d;
 }
 
-/* Image optimization */
-img {
-  max-width: 100%;
-  height: auto;
+/* Image optimization - wrapped in @layer base so utilities like h-full override it */
+@layer base {
+  img {
+    max-width: 100%;
+    height: auto;
+  }
 }
 
 /* Typography scale — readable on all screens */
