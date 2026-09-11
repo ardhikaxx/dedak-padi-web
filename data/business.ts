@@ -37,9 +37,9 @@ export const businessConfig = {
   },
 
   seo: {
-    title: "Dedak Padi & Bekatul di Bondowoso, Jawa Timur | UD Purnama",
+    title: "Dedak Padi & Bekatul Berkualitas di Bondowoso | UD Purnama",
     description:
-      "Penyedia dedak padi dan bekatul berkualitas di Bondowoso, Jawa Timur. Melayani kebutuhan pakan ternak ayam, bebek, sapi, dan ikan dalam kemasan 1kg, 5kg, hingga partai besar grosir. Hubungi UD Purnama sekarang.",
+      "Penyedia dedak padi & bekatul berkualitas di Bondowoso, Jawa Timur. Melayani eceran 1kg, 5kg hingga partai besar grosir pakan ternak & ikan.",
     keywords:
       "dedak padi, bekatul, dedak padi Bondowoso, bekatul Bondowoso, jual dedak padi, supplier dedak padi, distributor dedak padi, dedak padi Jawa Timur, harga dedak padi, pakan ternak, dedak padi pakan ayam, dedak padi pakan sapi, UD Purnama",
     ogImage: "/images/og-image.jpg",
