@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import { Home, Package, Star, BookOpen, HelpCircle } from 'lucide-react';
 import { businessConfig, getWhatsAppUrl } from '@/data/business';
@@ -15,8 +16,13 @@ const navLinks = [
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
+  const isHome = pathname === '/';
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('beranda');
+
+  // Tampilkan navbar dengan latar solid & teks gelap jika di-scroll ATAU jika sedang berada di luar homepage (seperti /edukasi)
+  const isSolidNav = isScrolled || !isHome;
 
   // Scroll state untuk navbar atas
   useEffect(() => {
@@ -25,10 +31,18 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // IntersectionObserver untuk deteksi section aktif
+  // IntersectionObserver untuk deteksi section aktif di beranda, atau sinkronisasi rute aktif
   useEffect(() => {
+    if (!isHome) {
+      if (pathname.startsWith('/edukasi')) {
+        setActiveSection('edukasi');
+      }
+      return;
+    }
+
     const observers: IntersectionObserver[] = [];
     navLinks.forEach(({ id }) => {
+      if (id === 'edukasi') return;
       const el = document.getElementById(id);
       if (!el) return;
       const obs = new IntersectionObserver(
@@ -39,19 +53,19 @@ export default function Navbar() {
       observers.push(obs);
     });
     return () => observers.forEach((o) => o.disconnect());
-  }, []);
+  }, [isHome, pathname]);
 
   const handleNavClick = (link: (typeof navLinks)[0]) => {
     if (typeof window !== 'undefined') {
       if (link.href === '/edukasi') {
-        if (window.location.pathname === '/edukasi') {
+        if (pathname === '/edukasi') {
           window.scrollTo({ top: 0, behavior: 'smooth' });
         } else {
           window.location.href = '/edukasi';
         }
         return;
       }
-      if (window.location.pathname !== '/') {
+      if (!isHome) {
         window.location.href = link.href;
       } else {
         scrollToSection(link.id);
@@ -60,7 +74,7 @@ export default function Navbar() {
   };
 
   const handleLogoClick = () => {
-    if (typeof window !== 'undefined' && window.location.pathname !== '/') {
+    if (typeof window !== 'undefined' && !isHome) {
       window.location.href = '/';
     } else {
       scrollToSection('beranda');
@@ -79,7 +93,7 @@ export default function Navbar() {
           className={`
             pointer-events-auto w-full max-w-4xl
             rounded-full border transition-all duration-500
-            ${isScrolled
+            ${isSolidNav
               ? 'bg-white/80 border-stone-200/60 shadow-[0_8px_32px_rgba(0,0,0,0.12)] backdrop-blur-xl'
               : 'bg-white/10 border-white/20 shadow-[0_4px_24px_rgba(0,0,0,0.10)] backdrop-blur-md'
             }
@@ -106,12 +120,12 @@ export default function Navbar() {
               </div>
               <div className="flex flex-col items-start leading-none">
                 <span className={`font-semibold text-sm tracking-tight transition-colors duration-300 ${
-                  isScrolled ? 'text-stone-900' : 'text-white'
+                  isSolidNav ? 'text-stone-900' : 'text-white'
                 }`}>
                   {businessConfig.name}
                 </span>
                 <span className={`text-[10px] font-medium tracking-wide transition-colors duration-300 ${
-                  isScrolled ? 'text-stone-400' : 'text-white/50'
+                  isSolidNav ? 'text-stone-400' : 'text-white/50'
                 }`}>
                   {businessConfig.location}
                 </span>
@@ -120,19 +134,26 @@ export default function Navbar() {
 
             {/* Desktop Nav Links */}
             <div className="hidden lg:flex items-center gap-0.5">
-              {navLinks.map((link) => (
-                <button
-                  key={link.id}
-                  onClick={() => handleNavClick(link)}
-                  className={`px-3.5 py-1.5 text-sm font-medium rounded-full transition-all duration-200 ${
-                    isScrolled
-                      ? 'text-stone-600 hover:text-green-700 hover:bg-green-50'
-                      : 'text-white/80 hover:text-white hover:bg-white/15'
-                  }`}
-                >
-                  {link.label}
-                </button>
-              ))}
+              {navLinks.map((link) => {
+                const isActive = activeSection === link.id;
+                return (
+                  <button
+                    key={link.id}
+                    onClick={() => handleNavClick(link)}
+                    className={`px-3.5 py-1.5 text-sm font-medium rounded-full transition-all duration-200 ${
+                      isActive
+                        ? isSolidNav
+                          ? 'text-green-700 bg-green-50 font-semibold shadow-xs'
+                          : 'text-white bg-white/20 font-semibold'
+                        : isSolidNav
+                          ? 'text-stone-600 hover:text-green-700 hover:bg-green-50/60'
+                          : 'text-white/80 hover:text-white hover:bg-white/15'
+                    }`}
+                  >
+                    {link.label}
+                  </button>
+                );
+              })}
             </div>
 
             {/* Desktop CTA */}
@@ -142,7 +163,7 @@ export default function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`inline-flex items-center px-4 py-2 rounded-full text-white text-sm font-semibold transition-all duration-200 shadow-md ${
-                  isScrolled
+                  isSolidNav
                     ? 'bg-green-700 hover:bg-green-800 hover:shadow-green-700/30'
                     : 'bg-green-500/90 hover:bg-green-400 hover:shadow-green-500/30'
                 }`}
@@ -165,7 +186,7 @@ export default function Navbar() {
         <div className={`
           backdrop-blur-xl border rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.18)] overflow-hidden
           transition-all duration-500
-          ${isScrolled
+          ${isSolidNav
             ? 'bg-white/90 border-stone-200/60'
             : 'bg-stone-900/70 border-white/15'
           }
@@ -183,7 +204,7 @@ export default function Navbar() {
                     flex items-center justify-center transition-all duration-300 rounded-full
                     ${isActive
                       ? 'flex-row gap-2 bg-green-600 text-white px-4 py-3'
-                      : isScrolled
+                      : isSolidNav
                         ? 'flex-col text-stone-500 hover:text-green-700 px-4 py-3'
                         : 'flex-col text-white/70 hover:text-white px-4 py-3'
                     }
