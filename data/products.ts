@@ -53,7 +53,7 @@ export const products: Product[] = [
     badge: undefined,
     featured: true,
     price: 5000,
-    shopeeUrl: "#",
+    shopeeUrl: "https://id.shp.ee/8JXR7VJ8",
   },
   {
     id: "dedak-halus-1kg",
@@ -82,7 +82,7 @@ export const products: Product[] = [
     image: "/images/product/dedak-padi-halus-1kg.svg",
     featured: true,
     price: 4000,
-    shopeeUrl: "#",
+    shopeeUrl: "https://id.shp.ee/7B1EpkEQ",
   },
   {
     id: "dedak-menir-5kg",
@@ -112,7 +112,7 @@ export const products: Product[] = [
     badge: undefined,
     featured: true,
     price: 20000,
-    shopeeUrl: "#",
+    shopeeUrl: "https://id.shp.ee/11TordVo",
   },
   {
     id: "dedak-halus-5kg",
@@ -142,7 +142,7 @@ export const products: Product[] = [
     badge: undefined,
     featured: true,
     price: 15000,
-    shopeeUrl: "#",
+    shopeeUrl: "https://id.shp.ee/ZWP6G5G5",
   },
 ];
 

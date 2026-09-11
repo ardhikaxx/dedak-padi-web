@@ -80,7 +80,7 @@ export default function JsonLd() {
             price: product.price,
             priceCurrency: 'IDR',
             availability: 'https://schema.org/InStock',
-            url: baseUrl,
+            url: product.shopeeUrl,
             seller: {
               '@type': 'Organization',
               name: businessConfig.name,
