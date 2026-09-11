@@ -34,15 +34,16 @@ export default function HeroSection() {
 
       {/* ── Foreground: konten teks ── */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-2xl">
+        <div className="max-w-3xl lg:max-w-4xl">
           {/* Headline */}
           <h1
             id="hero-heading"
-            className="text-3xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.15] tracking-tight mb-3 sm:mb-4 text-balance"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-bold text-white leading-[1.15] tracking-tight mb-3 sm:mb-4"
           >
-            Dedak Padi Berkualitas{' '}
-            <span className="inline-block">di Bondowoso,</span>{' '}
-            <span className="inline-block">Jawa Timur</span>
+            <span className="block">Dedak Padi Berkualitas</span>
+            <span className="block mt-1 sm:mt-1.5">
+              di Bondowoso, <span className="inline-block">Jawa Timur</span>
+            </span>
           </h1>
 
           {/* Subheadline SEO Context */}
