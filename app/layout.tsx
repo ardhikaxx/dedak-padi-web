@@ -71,6 +71,17 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  icons: {
+    icon: [
+      { url: "/images/logo-katul.svg", type: "image/svg+xml" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    shortcut: "/images/logo-katul.svg",
+    apple: [
+      { url: "/images/logo-katul.svg", type: "image/svg+xml" },
+    ],
+  },
   other: {
     "geo.region": "ID-JI",
     "geo.placename": "Bondowoso",
@@ -87,7 +98,9 @@ export default function RootLayout({
   return (
     <html lang="id" className={`${inter.variable} h-full scroll-smooth`}>
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/images/logo-katul.svg" type="image/svg+xml" />
+        <link rel="shortcut icon" href="/images/logo-katul.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/images/logo-katul.svg" />
       </head>
       <body className="min-h-full flex flex-col bg-[#FAFAF8] text-stone-900 antialiased">
         <JsonLd />
