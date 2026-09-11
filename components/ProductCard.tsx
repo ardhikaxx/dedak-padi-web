@@ -1,4 +1,4 @@
-import { ShoppingCart, ExternalLink } from 'lucide-react';
+import { ShoppingCart } from 'lucide-react';
 import { Product } from '@/data/products';
 
 interface ProductCardProps {
@@ -17,7 +17,7 @@ export default function ProductCard({ product }: ProductCardProps) {
   return (
     <article className="group bg-white rounded-2xl border border-stone-200 overflow-hidden hover:border-green-200 hover:shadow-lg transition-all duration-300">
       {/* Product Image */}
-      <div className="relative aspect-[4/3] bg-gradient-to-br from-amber-50 via-amber-25 to-stone-50 overflow-hidden">
+      <div className="relative aspect-[4/5] bg-gradient-to-br from-amber-50 via-amber-25 to-stone-50 overflow-hidden">
         <img
           src={product.image}
           alt={product.name}
@@ -43,37 +43,37 @@ export default function ProductCard({ product }: ProductCardProps) {
       </div>
 
       {/* Content */}
-      <div className="p-5">
+      <div className="p-4">
         {/* Price */}
-        <div className="mb-3">
-          <span className="text-2xl font-bold text-green-700">
+        <div className="mb-2">
+          <span className="text-xl font-bold text-green-700">
             {formatPrice(product.price)}
           </span>
-          <span className="text-sm text-stone-400 ml-1">
+          <span className="text-xs text-stone-400 ml-1">
             / {product.packaging[0]?.size} {product.packaging[0]?.unit}
           </span>
         </div>
 
-        <h3 className="text-lg font-bold text-stone-900 mb-1.5 group-hover:text-green-700 transition-colors">
+        <h3 className="text-sm font-bold text-stone-900 mb-1 group-hover:text-green-700 transition-colors leading-tight">
           {product.name}
         </h3>
-        <p className="text-sm text-stone-600 leading-relaxed mb-4">
+        <p className="text-xs text-stone-600 leading-relaxed mb-3 line-clamp-2">
           {product.shortDescription}
         </p>
 
         {/* Usage tags */}
-        <div className="flex flex-wrap gap-1.5 mb-5">
-          {product.usageFor.slice(0, 3).map((use) => (
+        <div className="flex flex-wrap gap-1 mb-4">
+          {product.usageFor.slice(0, 2).map((use) => (
             <span
               key={use}
-              className="px-2 py-0.5 rounded-md bg-stone-50 border border-stone-200 text-stone-600 text-xs"
+              className="px-1.5 py-0.5 rounded bg-stone-50 border border-stone-200 text-stone-600 text-[10px]"
             >
               {use}
             </span>
           ))}
-          {product.usageFor.length > 3 && (
-            <span className="px-2 py-0.5 rounded-md bg-stone-50 border border-stone-200 text-stone-500 text-xs">
-              +{product.usageFor.length - 3} lainnya
+          {product.usageFor.length > 2 && (
+            <span className="px-1.5 py-0.5 rounded bg-stone-50 border border-stone-200 text-stone-500 text-[10px]">
+              +{product.usageFor.length - 2}
             </span>
           )}
         </div>
@@ -83,12 +83,11 @@ export default function ProductCard({ product }: ProductCardProps) {
           href={product.shopeeUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl bg-orange-500 text-white text-sm font-semibold hover:bg-orange-600 transition-all duration-200 group/btn"
+          className="flex items-center justify-center gap-1.5 w-full py-2 px-3 rounded-lg bg-orange-500 text-white text-xs font-semibold hover:bg-orange-600 transition-all duration-200 group/btn"
           aria-label={`Beli ${product.name} di Shopee`}
         >
-          <ShoppingCart className="w-4 h-4" aria-hidden="true" />
+          <ShoppingCart className="w-3.5 h-3.5" aria-hidden="true" />
           Beli di Shopee
-          <ExternalLink className="w-3 h-3 opacity-60" aria-hidden="true" />
         </a>
       </div>
     </article>
