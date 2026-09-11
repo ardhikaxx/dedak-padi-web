@@ -10,7 +10,7 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
-const baseUrl = businessConfig.seo.canonicalUrl || "https://dedakpadi.com";
+const baseUrl = businessConfig.seo.canonicalUrl || "https://dedak-padi.vercel.app";
 
 export const viewport: Viewport = {
   themeColor: "#15803d",
@@ -50,7 +50,15 @@ export const metadata: Metadata = {
         url: businessConfig.seo.ogImage,
         width: 1200,
         height: 630,
-        alt: "Pabrik Dedak Padi UD Purnama Bondowoso Jawa Timur",
+        type: "image/png",
+        alt: "UD Purnama - Dedak Padi & Bekatul Berkualitas di Bondowoso Jawa Timur",
+      },
+      {
+        url: businessConfig.seo.ogImageSvg,
+        width: 1920,
+        height: 1080,
+        type: "image/svg+xml",
+        alt: "UD Purnama - Dedak Padi & Bekatul Berkualitas di Bondowoso Jawa Timur",
       },
     ],
   },

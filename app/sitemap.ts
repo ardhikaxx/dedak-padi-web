@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { businessConfig } from '@/data/business';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = businessConfig.seo.canonicalUrl || 'https://dedakpadi.com';
+  const baseUrl = businessConfig.seo.canonicalUrl || 'https://dedak-padi.vercel.app';
   const lastModified = new Date();
 
   return [

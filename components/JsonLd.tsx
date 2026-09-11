@@ -2,7 +2,7 @@ import { businessConfig } from '@/data/business';
 import { products, faqItems } from '@/data/products';
 
 export default function JsonLd() {
-  const baseUrl = businessConfig.seo.canonicalUrl || 'https://dedakpadi.com';
+  const baseUrl = businessConfig.seo.canonicalUrl || 'https://dedak-padi.vercel.app';
 
   // 1. LocalBusiness / WholesaleStore Schema
   const localBusinessSchema = {
@@ -15,9 +15,12 @@ export default function JsonLd() {
     url: baseUrl,
     telephone: `+${businessConfig.whatsapp.adminNumber}`,
     priceRange: 'Rp 4.000 - Rp 20.000',
-    image: [`${baseUrl}${businessConfig.seo.ogImage}`, `${baseUrl}/images/logo-katul.svg`],
+    image: [
+      `${baseUrl}${businessConfig.seo.ogImage}`,
+      `${baseUrl}${businessConfig.seo.ogImageSvg}`,
+      `${baseUrl}/images/logo-katul.svg`,
+    ],
     address: {
-      '@type': 'PostalAddress',
       addressLocality: 'Bondowoso',
       addressRegion: 'Jawa Timur',
       addressCountry: 'ID',
