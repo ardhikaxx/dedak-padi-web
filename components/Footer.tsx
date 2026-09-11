@@ -2,20 +2,49 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { MapPin, Phone, Mail, Clock, ExternalLink } from 'lucide-react';
 import { businessConfig, getWhatsAppUrl } from '@/data/business';
+import { scrollToSection } from '@/data/scroll';
 
 const footerLinks = [
-  { label: 'Beranda',      href: '/' },
-  { label: 'Katalog Produk', href: '/#produk' },
-  { label: 'Keunggulan',   href: '/#keunggulan' },
-  { label: 'Layanan Jawa Timur', href: '/#layanan-wilayah' },
-  { label: 'Edukasi & Panduan', href: '/edukasi' },
-  { label: 'Tanya Jawab (FAQ)', href: '/#faq' },
+  { label: 'Beranda',      id: 'beranda',    href: '/' },
+  { label: 'Katalog Produk', id: 'produk',     href: '/' },
+  { label: 'Keunggulan',   id: 'keunggulan', href: '/' },
+  { label: 'Layanan Jawa Timur', id: 'layanan-wilayah', href: '/' },
+  { label: 'Edukasi & Panduan', id: 'edukasi', href: '/edukasi' },
+  { label: 'Tanya Jawab (FAQ)', id: 'faq',        href: '/' },
 ];
 
 export default function Footer() {
   const { contact, social } = businessConfig;
+  const pathname = usePathname();
+
+  const handleFooterLinkClick = (e: React.MouseEvent, link: (typeof footerLinks)[0]) => {
+    if (link.href === '/edukasi') return;
+    e.preventDefault();
+    if (link.id === 'beranda') {
+      if (pathname === '/') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        if (window.location.hash) {
+          window.history.replaceState(null, '', window.location.pathname);
+        }
+      } else {
+        window.location.href = '/';
+      }
+      return;
+    }
+
+    if (pathname === '/') {
+      scrollToSection(link.id);
+      if (window.location.hash) {
+        window.history.replaceState(null, '', window.location.pathname);
+      }
+    } else {
+      sessionStorage.setItem('target_section', link.id);
+      window.location.href = '/';
+    }
+  };
 
   return (
     <footer className="bg-stone-900 text-stone-300" role="contentinfo">
@@ -146,9 +175,10 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2.5" role="list">
               {footerLinks.map((link) => (
-                <li key={link.href}>
+                <li key={link.id}>
                   <Link
                     href={link.href}
+                    onClick={(e) => handleFooterLinkClick(e, link)}
                     className="text-sm text-stone-400 hover:text-green-400 transition-colors text-left inline-block"
                   >
                     {link.label}

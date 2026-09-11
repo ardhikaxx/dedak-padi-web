@@ -1,6 +1,9 @@
+'use client';
+
 import Image from 'next/image';
 import { ArrowRight, CheckCircle2, ChevronRight } from 'lucide-react';
 import { businessConfig, getWhatsAppUrl } from '@/data/business';
+import { scrollToSection } from '@/data/scroll';
 
 export default function HeroSection() {
   return (
@@ -82,13 +85,14 @@ export default function HeroSection() {
                 aria-hidden="true"
               />
             </a>
-            <a
-              href="#produk"
-              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl border-2 border-white/30 text-white font-semibold text-base hover:border-green-400 hover:text-green-400 hover:bg-white/5 transition-all duration-200 backdrop-blur-sm"
+            <button
+              type="button"
+              onClick={() => scrollToSection('produk')}
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl border-2 border-white/30 text-white font-semibold text-base hover:border-green-400 hover:text-green-400 hover:bg-white/5 transition-all duration-200 backdrop-blur-sm cursor-pointer"
             >
               Lihat Produk
               <ChevronRight className="w-4 h-4" aria-hidden="true" />
-            </a>
+            </button>
           </div>
         </div>
       </div>

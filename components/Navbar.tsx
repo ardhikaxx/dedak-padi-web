@@ -8,11 +8,11 @@ import { businessConfig, getWhatsAppUrl } from '@/data/business';
 import { scrollToSection } from '@/data/scroll';
 
 const navLinks = [
-  { label: 'Beranda',      id: 'beranda',    href: '/',            icon: Home },
-  { label: 'Produk',       id: 'produk',     href: '/#produk',     icon: Package },
-  { label: 'Keunggulan',   id: 'keunggulan', href: '/#keunggulan', icon: Star },
-  { label: 'Edukasi',      id: 'edukasi',    href: '/edukasi',     icon: BookOpen },
-  { label: 'FAQ',          id: 'faq',        href: '/#faq',        icon: HelpCircle },
+  { label: 'Beranda',      id: 'beranda',    href: '/',        icon: Home },
+  { label: 'Produk',       id: 'produk',     href: '/',        icon: Package },
+  { label: 'Keunggulan',   id: 'keunggulan', href: '/',        icon: Star },
+  { label: 'Edukasi',      id: 'edukasi',    href: '/edukasi', icon: BookOpen },
+  { label: 'FAQ',          id: 'faq',        href: '/',        icon: HelpCircle },
 ];
 
 export default function Navbar() {
@@ -21,12 +21,29 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('beranda');
 
-  // Bersihkan hash #beranda dari URL jika pengunjung datang dengan URL ber-hash
+  // Tangani navigasi lintas halaman via sessionStorage atau bersihkan hash dari URL agar route link tetap bersih
   useEffect(() => {
-    if (typeof window !== 'undefined' && window.location.hash === '#beranda') {
-      window.history.replaceState(null, '', window.location.pathname + window.location.search);
+    if (typeof window !== 'undefined') {
+      const savedSection = sessionStorage.getItem('target_section');
+      if (savedSection) {
+        sessionStorage.removeItem('target_section');
+        setTimeout(() => {
+          scrollToSection(savedSection);
+        }, 150);
+      }
+
+      if (window.location.hash) {
+        const hash = window.location.hash.slice(1);
+        const targetEl = document.getElementById(hash);
+        if (targetEl) {
+          setTimeout(() => {
+            scrollToSection(hash);
+          }, 100);
+        }
+        window.history.replaceState(null, '', window.location.pathname + window.location.search);
+      }
     }
-  }, []);
+  }, [isHome]);
 
   // Tampilkan navbar dengan latar solid & teks gelap jika di-scroll ATAU jika sedang berada di luar homepage (seperti /edukasi)
   const isSolidNav = isScrolled || !isHome;
@@ -84,9 +101,13 @@ export default function Navbar() {
         return;
       }
       if (!isHome) {
-        window.location.href = link.href;
+        sessionStorage.setItem('target_section', link.id);
+        window.location.href = '/';
       } else {
         scrollToSection(link.id);
+        if (window.location.hash) {
+          window.history.replaceState(null, '', window.location.pathname + window.location.search);
+        }
       }
     }
   };
