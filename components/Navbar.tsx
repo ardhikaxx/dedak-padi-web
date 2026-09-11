@@ -48,12 +48,19 @@ export default function Navbar() {
   // Tampilkan navbar dengan latar solid & teks gelap jika di-scroll ATAU jika sedang berada di luar homepage (seperti /edukasi)
   const isSolidNav = isScrolled || !isHome;
 
-  // Scroll state untuk navbar atas
+  // Scroll state untuk navbar atas & pastikan activeSection = 'beranda' saat di hero section
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20);
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      setIsScrolled(scrollY > 20);
+      if (isHome && scrollY < 250) {
+        setActiveSection('beranda');
+      }
+    };
     window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isHome]);
 
   // IntersectionObserver untuk deteksi section aktif di beranda, atau sinkronisasi rute aktif
   useEffect(() => {
@@ -70,8 +77,12 @@ export default function Navbar() {
       const el = document.getElementById(id);
       if (!el) return;
       const obs = new IntersectionObserver(
-        ([entry]) => { if (entry.isIntersecting) setActiveSection(id); },
-        { rootMargin: '-40% 0px -55% 0px', threshold: 0 }
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setActiveSection(id);
+          }
+        },
+        { rootMargin: '-30% 0px -50% 0px', threshold: 0 }
       );
       obs.observe(el);
       observers.push(obs);
@@ -81,6 +92,7 @@ export default function Navbar() {
 
   const handleNavClick = (link: (typeof navLinks)[0]) => {
     if (typeof window !== 'undefined') {
+      setActiveSection(link.id);
       if (link.id === 'beranda') {
         if (!isHome) {
           window.location.href = '/';
@@ -113,6 +125,7 @@ export default function Navbar() {
   };
 
   const handleLogoClick = () => {
+    setActiveSection('beranda');
     if (typeof window !== 'undefined') {
       if (!isHome) {
         window.location.href = '/';
@@ -177,7 +190,7 @@ export default function Navbar() {
             </button>
 
             {/* Desktop Nav Links */}
-            <div className="hidden lg:flex items-center gap-0.5">
+            <div className="hidden lg:flex items-center gap-1">
               {navLinks.map((link) => {
                 const isActive = activeSection === link.id;
                 return (
@@ -187,11 +200,11 @@ export default function Navbar() {
                     className={`px-3.5 py-1.5 text-sm font-medium rounded-full transition-all duration-200 ${
                       isActive
                         ? isSolidNav
-                          ? 'text-green-700 bg-green-50 font-semibold shadow-xs'
-                          : 'text-white bg-white/20 font-semibold'
+                          ? 'text-green-700 bg-green-50 font-semibold shadow-xs ring-1 ring-green-600/20'
+                          : 'bg-green-600 text-white font-semibold shadow-md'
                         : isSolidNav
                           ? 'text-stone-600 hover:text-green-700 hover:bg-green-50/60'
-                          : 'text-white/80 hover:text-white hover:bg-white/15'
+                          : 'text-white/85 hover:text-white hover:bg-white/15'
                     }`}
                   >
                     {link.label}
