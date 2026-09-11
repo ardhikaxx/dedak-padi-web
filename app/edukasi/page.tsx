@@ -39,7 +39,7 @@ export const metadata: Metadata = {
         url: businessConfig.seo.ogImage,
         width: 1200,
         height: 630,
-        type: 'image/png',
+        type: 'image/jpeg',
         alt: 'Panduan Dedak Padi & Bekatul UD Purnama Bondowoso',
       },
       {

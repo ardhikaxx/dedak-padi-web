@@ -50,6 +50,13 @@ export const metadata: Metadata = {
         url: businessConfig.seo.ogImage,
         width: 1200,
         height: 630,
+        type: "image/jpeg",
+        alt: "UD Purnama - Dedak Padi & Bekatul Berkualitas di Bondowoso Jawa Timur",
+      },
+      {
+        url: businessConfig.seo.ogImagePng,
+        width: 1200,
+        height: 630,
         type: "image/png",
         alt: "UD Purnama - Dedak Padi & Bekatul Berkualitas di Bondowoso Jawa Timur",
       },

@@ -17,6 +17,7 @@ export default function JsonLd() {
     priceRange: 'Rp 4.000 - Rp 20.000',
     image: [
       `${baseUrl}${businessConfig.seo.ogImage}`,
+      `${baseUrl}${businessConfig.seo.ogImagePng}`,
       `${baseUrl}${businessConfig.seo.ogImageSvg}`,
       `${baseUrl}/images/logo-katul.svg`,
     ],
