@@ -4,6 +4,7 @@ import "./globals.css";
 import { businessConfig } from "@/data/business";
 import JsonLd from "@/components/JsonLd";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -124,6 +125,7 @@ export default function RootLayout({
         <JsonLd />
         {children}
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
