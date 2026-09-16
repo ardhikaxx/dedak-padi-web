@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { businessConfig } from "@/data/business";
 import JsonLd from "@/components/JsonLd";
+import { Analytics } from "@vercel/analytics/next";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -122,6 +123,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-[#FAFAF8] text-stone-900 antialiased">
         <JsonLd />
         {children}
+        <Analytics />
       </body>
     </html>
   );
